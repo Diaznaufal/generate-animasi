@@ -1,0 +1,26 @@
+# Remotion Explainer Animation Director Rules (SOP)
+
+Selalu patuhi standar arsitektur dan kualitas berikut saat mengembangkan video explainer Remotion:
+
+1. ARCHITECTURE & SCENE CONTROL:
+   - Gunakan `<Series>` dan `<Series.Sequence>` untuk memecah video shot-by-shot per adegan dialog naskah.
+   - Jangan gunakan satu animasi berulang (looping) untuk keseluruhan durasi video.
+   - Setiap adegan harus 100% selaras dengan alur naskah narasi.
+
+2. CAMERA & MOTION (MOTION CAM):
+   - Setiap sequence wajib memiliki pergerakan kamera aktif (pan, slow zoom-in/out, orbit angle 3D) via `interpolate` atau `spring`.
+   - Lakukan camera cut dramatis di setiap pergantian shot atau poin penting naskah.
+
+3. AUDIO & VOICE-OVER PIPELINE:
+   - Engine default: Microsoft Edge TTS (`edge-tts`, suara `id-ID-GadisNeural` atau `id-ID-ArdiNeural`) gratis tanpa API key, modular dengan opsi ElevenLabs (`--provider=elevenlabs`).
+   - Durasi video (`DURATION_IN_FRAMES`) dan timing subtitle wajib dihitung langsung dari panjang audio aktual di `public/audio/narasi.mp3`.
+
+4. DYNAMIC CAPTIONS (SUBTITLE SYSTEM):
+   - Ukuran font maksimal 24px - 28px agar proporsional di format portrait (9:16) dan tidak memakan ruang layar.
+   - Highlight kata aktif warna kuning tegas (#FACC15), dengan background box semi-transparan ber-blur (backdrop-blur) di posisi bottom 90px.
+   - Subtitle wajib sinkron kata per kata dengan suara pembicara (kecepatan ~3-4 kata per detik), dilarang balap/mendahului audio narasi.
+
+5. HOOK & CTA:
+   - 0-3 detik pertama: Visual hook dramatis & pergerakan objek instan untuk menahan audiens (golden hook).
+   - 5 detik terakhir: Transisi closing call-to-action (pertanyaan interaktif / subscribe).
+

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="60%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#f97316" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#7c2d12" stop-opacity="0" />
+    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+      <!-- Background Sky & Environment -->
+      <rect width="1080" height="1920" fill="url(#sky1)" />
+      <circle cx="540" cy="500" r="380" fill="url(#sunGlow)" />
+      
+      <!-- Horizon & Distant Silhouette -->
+      <path d="M0,1050 Q270,1010 540,1040 T1080,1020 L1080,1920 L0,1920 Z" fill="#090d16" />
+      
+      <!-- Ballast Bed -->
+      <polygon points="120,1920 960,1920 620,1080 460,1080" fill="#1e293b" />
+      
+      <!-- Ties / Bantalan Rel -->
+      <rect x="420" y="1120" width="240" height="26" rx="4" fill="#334155" stroke="#475569" stroke-width="2" />
+<rect x="377.5" y="1210" width="325" height="31" rx="4" fill="#334155" stroke="#475569" stroke-width="2" />
+<rect x="335" y="1300" width="410" height="36" rx="4" fill="#334155" stroke="#475569" stroke-width="2" />
+<rect x="292.5" y="1390" width="495" height="41" rx="4" fill="#334155" stroke="#475569" stroke-width="2" />
+<rect x="250" y="1480" width="580" height="46" rx="4" fill="#334155" stroke="#475569" stroke-width="2" />
+<rect x="207.5" y="1570" width="665" height="51" rx="4" fill="#334155" stroke="#475569" stroke-width="2" />
+<rect x="165" y="1660" width="750" height="56" rx="4" fill="#334155" stroke="#475569" stroke-width="2" />
+<rect x="122.5" y="1750" width="835" height="61" rx="4" fill="#334155" stroke="#475569" stroke-width="2" />
+<rect x="80" y="1840" width="920" height="66" rx="4" fill="#334155" stroke="#475569" stroke-width="2" />
+      
+      <!-- Left & Right Rails -->
+      <path d="M 490,1080 L 260,1920" stroke="#94a3b8" stroke-width="28" stroke-linecap="round" />
+      <path d="M 494,1080 L 264,1920" stroke="#f8fafc" stroke-width="6" stroke-linecap="round" />
+      
+      <path d="M 590,1080 L 820,1920" stroke="#94a3b8" stroke-width="28" stroke-linecap="round" />
+      <path d="M 586,1080 L 816,1920" stroke="#f8fafc" stroke-width="6" stroke-linecap="round" />
+      
+      <!-- Prominent Rail Gap Highlight in Foreground -->
+      <rect x="220" y="1620" width="80" height="18" fill="#090d16" stroke="#fbbf24" stroke-width="4" rx="2" />
+      <rect x="780" y="1620" width="80" height="18" fill="#090d16" stroke="#fbbf24" stroke-width="4" rx="2" />
+      
+      <!-- Pulsing Focus Target on Gap -->
+      <circle cx="260" cy="1630" r="60" fill="none" stroke="#f59e0b" stroke-width="6" stroke-dasharray="12,12" />
+      <circle cx="260" cy="1630" r="14" fill="#ef4444" filter="url(#glow)" />
+      
+      <!-- Visual Annotations -->
+      <text x="350" y="1640" font-family="system-ui, sans-serif" font-weight="900" font-size="42" fill="#fbbf24">CELAH PEMUAIAN</text>
+      <path d="M 330,1630 L 290,1630" stroke="#fbbf24" stroke-width="6" marker-end="url(#arrow)" />
+
+      <!-- Thematic Badge -->
+      <rect x="140" y="240" width="800" height="110" rx="28" fill="rgba(15, 23, 42, 0.85)" stroke="#f59e0b" stroke-width="3" />
+      <text x="540" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="44" fill="#ffffff" letter-spacing="2">MISTERI REL KERETA API</text>
+    
+</svg>

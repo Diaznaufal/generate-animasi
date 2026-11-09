@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="60%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#f97316" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#7c2d12" stop-opacity="0" />
+    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+      <rect width="1080" height="1920" fill="#18181b" />
+      <linearGradient id="crushGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#dc2626" />
+        <stop offset="50%" stop-color="#ea580c" />
+        <stop offset="100%" stop-color="#dc2626" />
+      </linearGradient>
+
+      <!-- Two rails colliding -->
+      <g transform="translate(0, 800)">
+        <!-- Left Rail -->
+        <rect x="40" y="0" width="460" height="140" rx="16" fill="#3f3f46" stroke="#e4e4e7" stroke-width="6" />
+        <!-- Huge Rightward Arrow -->
+        <polygon points="320,-60 480,70 320,200" fill="#ef4444" />
+        
+        <!-- Right Rail -->
+        <rect x="580" y="0" width="460" height="140" rx="16" fill="#3f3f46" stroke="#e4e4e7" stroke-width="6" />
+        <!-- Huge Leftward Arrow -->
+        <polygon points="760,-60 600,70 760,200" fill="#ef4444" />
+
+        <!-- Collision Spark Point -->
+        <circle cx="540" cy="70" r="80" fill="#fbbf24" filter="url(#glow)" />
+        <circle cx="540" cy="70" r="30" fill="#ffffff" />
+      </g>
+
+      <!-- Force meter badge -->
+      <g transform="translate(240, 1180)">
+        <rect x="0" y="0" width="600" height="200" rx="28" fill="#27272a" stroke="#f59e0b" stroke-width="5" />
+        <text x="300" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="700" font-size="34" fill="#a1a1aa">TEKANAN KOMPRESI REL</text>
+        <text x="300" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="64" fill="#ef4444">&gt; 1.000.000 N</text>
+      </g>
+
+      <!-- Thematic Badge -->
+      <rect x="140" y="240" width="800" height="110" rx="28" fill="rgba(39, 39, 42, 0.95)" stroke="#ef4444" stroke-width="3" />
+      <text x="540" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="44" fill="#fca5a5">TEKANAN TANPA CELAH</text>
+    
+</svg>
