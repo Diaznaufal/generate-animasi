@@ -125,7 +125,13 @@ async function generateEdgeTTS(text, voice) {
 
   try {
     console.log(`⏳ Sedang meng-generate audio dengan edge-tts...`);
-    const pythonCmd = process.platform === "win32" ? "python" : "python3";
+    const venvPython = path.resolve(".venv/bin/python");
+    const pythonCmd = fs.existsSync(venvPython)
+      ? venvPython
+      : process.platform === "win32"
+        ? "python"
+        : "python3";
+    const targetSrt = path.resolve("public/audio/narasi.srt");
     await execFileAsync(pythonCmd, [
       "-m",
       "edge_tts",
@@ -135,6 +141,8 @@ async function generateEdgeTTS(text, voice) {
       tempTextFile,
       "--write-media",
       targetAudio,
+      "--write-subtitles",
+      targetSrt,
     ]);
 
     // Hapus file script sementara
