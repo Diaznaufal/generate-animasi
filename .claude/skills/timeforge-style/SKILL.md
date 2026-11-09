@@ -41,7 +41,7 @@ Setiap tahapan produksi wajib mengadopsi aturan dari skill Remotion terkait:
                                   ▼
 [FASE 4: CAPTIONS & OVERLAY]
 • Skill `remotion-captions` (Sub-skill `display-captions.md`):
-  - Dynamic subtitle box di `bottom: 90px`, font 26px uppercase bold 900.
+  - Dynamic subtitle box di `bottom: 320px` (Safe Zone), font 26px uppercase bold 900.
   - Active word highlight kuning `#FACC15` sinkron audio narasi.
                                   │
                                   ▼
@@ -146,6 +146,8 @@ Berdasarkan analisis empiris 19.569 frame:
 
 ## 6. DYNAMIC CAPTIONS (`remotion-captions`)
 
+Posisi subtitle wajib mematuhi **Mobile Safe Zone** (bebas dari overlay avatar, judul, dan tombol platform YouTube Shorts/TikTok):
+
 ```css
 font-size: 26px;
 font-weight: 900;
@@ -154,8 +156,8 @@ color: #FFFFFF;
 background-color: rgba(15, 23, 42, 0.85);
 backdrop-filter: blur(12px);
 border-radius: 14px;
-padding: 8px 20px;
-bottom: 90px;
+padding: 10px 24px;
+bottom: 320px; /* Safe Zone vertikal 9:16 (minimal >= 320px agar tidak tertutup UI Shorts/TikTok) */
 ```
 - **Kata Aktif:** Highlight kuning tebal `#FACC15` dengan drop shadow tegas.
 - **Pacing:** Sinkronisasi kata per kata mengikuti audio narator (~2 kata per detik), dilarang balap audio.

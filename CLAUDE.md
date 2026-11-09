@@ -31,7 +31,7 @@ Repository for producing high-retention 3D explainer videos (1080x1920, 9:16 ver
    - **Font Size:** 24px - 28px (proportional for 9:16 portrait without obstructing 3D objects).
    - **Typography:** Ultra-bold uppercase sans-serif (`font-weight: 900`).
    - **Active Highlight:** Solid yellow (`#FACC15`) with text shadow for readability.
-   - **Container:** Positioned at `bottom: 90px`, semi-transparent backdrop blur (`backdrop-blur-md` / rgba dark background).
+   - **Container:** Positioned at `bottom: 320px` (Safe Zone vertikal 9:16 untuk mencegah tertutup UI Shorts/TikTok), semi-transparent backdrop blur (`backdrop-blur-md` / rgba dark background).
    - **Pacing:** Synchronize word highlighting with narrator speech (~3-4 words/second). Words must stay highlighted until spoken, never racing ahead of audio.
 
 5. **Audio-Driven Timing:**
@@ -50,7 +50,7 @@ Saat memproduksi video baru, seluruh skill terintegrasi dalam **5-fase rantai sk
 3. **Komposisi 3D & Gerakan Kamera**:
    - `remotion-markup` (`3d.md`, `sequencing.md`, `audio.md`) + `viral-3d-explainer`: Canvas Three.js deterministik via `useCurrentFrame()` (DILARANG `useFrame()`), modular `<Series.Sequence>`, ground $Y=0$, kamera eye-level $Y=2.2-4.5$, dan pencahayaan warm amber (+21.4).
 4. **Dynamic Captions**:
-   - `remotion-captions` (`display-captions.md`) + `animation-director`: Subtitle dinamis 26px font tebal 900 di `bottom: 90px`, warna aktif kuning `#FACC15` dengan sinkronisasi kata per kata.
+   - `remotion-captions` (`display-captions.md`) + `animation-director`: Subtitle dinamis 26px font tebal 900 di `bottom: 320px` (Safe Zone), warna aktif kuning `#FACC15` dengan sinkronisasi kata per kata.
 5. **Render & Quality Check**:
    - `remotion-render`: Export MP4 1080x1920 30 FPS (`npx remotion render`), verifikasi bebas dead frame dan audio-sync akurat.
 

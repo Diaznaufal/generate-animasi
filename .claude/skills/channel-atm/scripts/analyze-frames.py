@@ -93,6 +93,7 @@ arr = {k: np.asarray(v, np.float32) for k, v in m.items()}
 np.savez_compressed(os.path.join(out_dir, f"{vid}.npz"), **arr)
 
 # Cut detection (Bhattacharyya histogram jump + pixel diff jump)
+# Minimum 15 frames (~0.5s) between cuts to prevent false positives from fast 3D camera rotation
 d, hd = arr["diff"], arr["hist"]
 n = len(d)
 cuts, dissolves = [], []
@@ -100,7 +101,7 @@ for i in range(1, n):
     lo, hi = max(1, i - 15), min(n, i + 16)
     neigh = np.median(hd[lo:hi])
     if hd[i] > 0.28 and d[i] > 12 and hd[i] > 3 * neigh + 0.05:
-        if not cuts or i - cuts[-1] > 6:
+        if not cuts or i - cuts[-1] >= 15:
             cuts.append(i)
 
 # Dissolve detection
@@ -119,8 +120,20 @@ while i < n:
         i += 1
 
 fades = [int(k) for k in np.where((arr["luma"][1:] < 8) & (arr["luma"][:-1] >= 8))[0]]
-bounds = sorted(set([0] + cuts + [a for a, _ in dissolves] + [n]))
-shots = [(bounds[k], bounds[k + 1]) for k in range(len(bounds) - 1) if bounds[k + 1] - bounds[k] > 3]
+dissolve_bounds = [a for a, _ in dissolves] + [b for _, b in dissolves]
+raw_bounds = sorted(set([0] + cuts + fades + dissolve_bounds + [n]))
+
+# Merge micro-intervals (<= 6 frames) into adjacent shots rather than dropping them as timeline gaps
+clean_bounds = [raw_bounds[0]]
+for b in raw_bounds[1:]:
+    if b - clean_bounds[-1] >= 8:
+        clean_bounds.append(b)
+    else:
+        clean_bounds[-1] = b
+if clean_bounds[-1] != n:
+    clean_bounds.append(n)
+
+shots = [(clean_bounds[k], clean_bounds[k + 1]) for k in range(len(clean_bounds) - 1)]
 
 json.dump({
     "id": vid, "frames": n, "fps": FPS,
