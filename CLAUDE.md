@@ -39,9 +39,14 @@ Repository for producing high-retention 3D explainer videos (1080x1920, 9:16 ver
      `durationInFrames = Math.ceil(audioDurationInSeconds * FPS)`
    - Never hardcode or guess video duration without verifying `public/audio/narasi.mp3`.
 
-## Skills & Reference Workflows
+## Skills & Skill Chaining Workflow
 
-- **`channel-atm`:** Reverse-engineering dan ATM channel referensi YouTube (analisis 30 FPS lighting, contrast, shadow, camera motion, editing cadence, dan naskah/storytelling).
-- **`viral-3d-explainer`:** SOP gate kualitas multi-environment 3D explainer style comic/clay.
-- **`animation-director`:** SOP komposisi scene Remotion, audio-sync, dan dynamic captions.
+Saat memproduksi video baru dengan gaya channel tertentu, lakukan **skill chaining**:
+
+1. **`timeforge-style`**: Menetapkan naskah 4-beat, WPM ~125, lighting Three.js (warm amber +21.4, luma 126.8), dan cut cadence 3.3s.
+2. **`scripts/generate_voiceover.mjs`**: Generate audio `public/audio/narasi.mp3` dengan voiceover terukur (`id-ID-ArdiNeural`, ~131 Hz).
+3. **`animation-director`**: Kunci durasi video (`DURATION_IN_FRAMES`) dari audio aktual dan pasang subtitle 26px di `bottom: 90px`.
+4. **`viral-3d-explainer`**: Validasi scene 3D (Ground $Y=0$, objek $Y \ge 0$, kamera eye-level $Y=2.2-4.5$, tanpa dead frame).
+5. **`channel-atm`**: Tool reverse-engineering komputasional 30 FPS untuk membedah channel referensi baru di masa depan.
+
 
