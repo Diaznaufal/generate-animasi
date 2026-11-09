@@ -10,6 +10,8 @@ Repository untuk memproduksi video animasi edukasi & sejarah viral format vertik
 - **Lint & Typecheck:** `npm run lint` (`eslint src && tsc`)
 - **Generate Voiceover & Aligned Subtitles:** `.venv/bin/python scripts/generate_aligned_voiceover.py <script.md> public/audio/narasi.mp3 <out_cues.json>`
   - Default: Microsoft Edge TTS suara pria bariton `id-ID-ArdiNeural` dengan ekstraksi timestamp `WordBoundary` akurat (anti-drift)
+- **QA & Verification Audit:** `.venv/bin/python scripts/qa_video.py <video.mp4> <CompositionId> <content_dir>`
+  - Otomatis mengaudit container, subtitle drift, verbatim match, cover still, dan contact sheet.
 - **Generate Voiceover (Simple):** `node scripts/generate_voiceover.mjs --script=path/to/script.md`
   - Default: Microsoft Edge TTS suara pria bariton `id-ID-ArdiNeural` (gratis)
   - Opsi suara wanita: `--voice=id-ID-GadisNeural`
@@ -46,4 +48,5 @@ Repository untuk memproduksi video animasi edukasi & sejarah viral format vertik
 ## Skills
 
 - **`timeforge-2d-short`:** Master SOP & blueprint lengkap 2D Vector Stickman Comic Explainer (naskah 4-beat, artikulasi stickman, detik 0 cover badge, kinetic typography di dada).
+- **`timeforge-qa`:** SOP Quality Assurance & verifikasi menyeluruh (audit subtitle drift, anti-hallucination, IG grid safe zone, contact sheet).
 - **`channel-atm`:** Tool komputasi visual & audio frame-by-frame 30 FPS untuk reverse-engineering channel referensi.
