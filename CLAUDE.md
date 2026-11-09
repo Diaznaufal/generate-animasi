@@ -8,7 +8,9 @@ Repository untuk memproduksi video animasi edukasi & sejarah viral format vertik
 - **Render Video:** `npx remotion render <CompositionId> out/<output-name>.mp4`
 - **Render Stills:** `npx remotion still <CompositionId> out/qa-stills/frame-<number>.png --frame=<number>`
 - **Lint & Typecheck:** `npm run lint` (`eslint src && tsc`)
-- **Generate Voiceover:** `node scripts/generate_voiceover.mjs --script=path/to/script.md`
+- **Generate Voiceover & Aligned Subtitles:** `.venv/bin/python scripts/generate_aligned_voiceover.py <script.md> public/audio/narasi.mp3 <out_cues.json>`
+  - Default: Microsoft Edge TTS suara pria bariton `id-ID-ArdiNeural` dengan ekstraksi timestamp `WordBoundary` akurat (anti-drift)
+- **Generate Voiceover (Simple):** `node scripts/generate_voiceover.mjs --script=path/to/script.md`
   - Default: Microsoft Edge TTS suara pria bariton `id-ID-ArdiNeural` (gratis)
   - Opsi suara wanita: `--voice=id-ID-GadisNeural`
   - Opsi ElevenLabs: `--provider=elevenlabs`

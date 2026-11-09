@@ -27,43 +27,42 @@ export const DURATION_IN_FRAMES = 997;
 // TIMELINE KINETIC SUBTITLE (TEPAT DI DADA KARAKTER SESUAI ATURAN TIMEFORGE)
 // ============================================================================
 const SUBTITLE_WORDS: KineticWord[] = [
-  // Beat 1: Hook (0 - 135)
-  { text: "BUKAN MERIAM EROPA", startFrame: 3, endFrame: 35 },
-  { text: "YANG BIKIN BELANDA", startFrame: 35, endFrame: 75 },
-  { text: "FRUSTRASI TOTAL!", startFrame: 75, endFrame: 105, emphasis: true },
-  { text: "DI KERATON BUTON!", startFrame: 105, endFrame: 135, emphasis: true },
-
-  // Beat 2: Rising Conflict (135 - 282)
-  { text: "DIKELILINGI JURANG TERJAL", startFrame: 135, endFrame: 175 },
-  { text: "DINDING BATU KAPUR", startFrame: 175, endFrame: 215 },
-  { text: "SETINGGI 8 METER!", startFrame: 215, endFrame: 250, emphasis: true },
-  { text: "KOKOH MENJULANG!", startFrame: 250, endFrame: 282 },
-
-  // Beat 3: Serangan Meriam (282 - 420)
-  { text: "MERIAM MUSUH", startFrame: 282, endFrame: 320 },
-  { text: "MENEMBAK MEMBABI BUTA!", startFrame: 320, endFrame: 365, emphasis: true },
-  { text: "DINDINGNYA KOKOH", startFrame: 365, endFrame: 395 },
-  { text: "TAK BERGEMING SEDIKIT PUN!", startFrame: 395, endFrame: 420, emphasis: true },
-
-  // Beat 4: Rahasianya? (420 - 478)
-  { text: "RAHASIANYA...?", startFrame: 420, endFrame: 478, emphasis: true },
-
-  // Beat 5: Putih Telur & Kapur Karang (478 - 648)
-  { text: "RIBUAN TON BATU GUNUNG", startFrame: 478, endFrame: 520 },
-  { text: "DIREKATKAN PUTIH TELUR", startFrame: 520, endFrame: 565, emphasis: true },
-  { text: "DAN KAPUR KARANG!", startFrame: 565, endFrame: 610, emphasis: true },
-  { text: "BIO-STRUKTUR LELUHUR!", startFrame: 610, endFrame: 648 },
-
-  // Beat 6: 23 Hektar Tak Pernah Dijebol (648 - 777)
-  { text: "SELUAS 23 HEKTAR", startFrame: 648, endFrame: 690 },
-  { text: "TAK PERNAH", startFrame: 690, endFrame: 730 },
-  { text: "BERHASIL DIJEBOL!", startFrame: 730, endFrame: 777, emphasis: true },
-
-  // Beat 7: Terluas di Dunia & CTA (777 - 997)
-  { text: "BENTENG TERLUAS DI DUNIA", startFrame: 777, endFrame: 825, emphasis: true },
-  { text: "BERDIRI DI INDONESIA!", startFrame: 825, endFrame: 882, emphasis: true },
-  { text: "MENURUT KALIAN...?", startFrame: 882, endFrame: 935 },
-  { text: "BISAKAH SEMEN MODERN TANDINGI?", startFrame: 935, endFrame: 997, emphasis: true },
+  { text: "BUKAN MERIAM EROPA", startFrame: 3, endFrame: 29 },
+  { text: "YANG BIKIN BELANDA", startFrame: 29, endFrame: 48 },
+  { text: "FRUSTRASI SAAT", startFrame: 48, endFrame: 74, emphasis: true },
+  { text: "MENYERANG KERATON", startFrame: 74, endFrame: 93 },
+  { text: "BUTON", startFrame: 93, endFrame: 113 },
+  { text: "BENTENG INI", startFrame: 134, endFrame: 153 },
+  { text: "DIKELILINGI", startFrame: 153, endFrame: 168 },
+  { text: "JURANG TERJAL DAN", startFrame: 168, endFrame: 194 },
+  { text: "DINDING BATU KAPUR", startFrame: 194, endFrame: 219 },
+  { text: "SETINGGI DELAPAN", startFrame: 219, endFrame: 243 },
+  { text: "METER", startFrame: 243, endFrame: 261, emphasis: true },
+  { text: "MERIAM MUSUH", startFrame: 283, endFrame: 298 },
+  { text: "MENEMBAK MEMBABI", startFrame: 298, endFrame: 317 },
+  { text: "BUTA", startFrame: 317, endFrame: 342 },
+  { text: "TAPI DINDINGNYA TAK", startFrame: 342, endFrame: 366 },
+  { text: "BERGEMING SEDIKIT", startFrame: 366, endFrame: 386 },
+  { text: "PUN", startFrame: 386, endFrame: 401 },
+  { text: "RAHASIANYA?", startFrame: 422, endFrame: 457, emphasis: true },
+  { text: "PRAJURIT", startFrame: 478, endFrame: 491 },
+  { text: "KESULTANAN BUTON", startFrame: 491, endFrame: 516 },
+  { text: "MEREKATKAN RIBUAN", startFrame: 516, endFrame: 541 },
+  { text: "TON BATU GUNUNG", startFrame: 541, endFrame: 562 },
+  { text: "MENGGUNAKAN PUTIH", startFrame: 562, endFrame: 585 },
+  { text: "TELUR DAN KAPUR", startFrame: 585, endFrame: 609 },
+  { text: "KARANG", startFrame: 609, endFrame: 628 },
+  { text: "BENTENG SELUAS DUA", startFrame: 649, endFrame: 678 },
+  { text: "PULUH TIGA HEKTAR", startFrame: 678, endFrame: 698 },
+  { text: "INI PUN TAK", startFrame: 698, endFrame: 715 },
+  { text: "PERNAH BERHASIL", startFrame: 715, endFrame: 734 },
+  { text: "DIJEBOL!", startFrame: 734, endFrame: 757, emphasis: true },
+  { text: "BENTENG TERLUAS DI", startFrame: 778, endFrame: 804 },
+  { text: "DUNIA INI BERDIRI", startFrame: 804, endFrame: 834 },
+  { text: "DI INDONESIA!", startFrame: 834, endFrame: 861, emphasis: true },
+  { text: "MENURUT KALIAN", startFrame: 882, endFrame: 917 },
+  { text: "BISAKAH SEMEN MODERN", startFrame: 917, endFrame: 946 },
+  { text: "MENANDINGINYA?", startFrame: 946, endFrame: 975, emphasis: true },
 ];
 
 // ============================================================================
