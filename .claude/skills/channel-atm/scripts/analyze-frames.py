@@ -1,0 +1,131 @@
+#!/usr/bin/env python3
+"""Per-frame computer vision analysis of video at 30 fps.
+
+Extracts lighting, contrast, color temperature, optical flow, and shot boundaries.
+Outputs <out_dir>/<id>.npz and <out_dir>/<id>_shots.json.
+"""
+import json, os, subprocess, sys
+import numpy as np
+import cv2
+
+W, H, FPS = 192, 108, 30
+
+if len(sys.argv) < 3:
+    print(f"Usage: {sys.argv[0]} <video.mp4> <out_dir>", file=sys.stderr)
+    sys.exit(1)
+
+src, out_dir = sys.argv[1], sys.argv[2]
+vid = os.path.basename(src).rsplit(".", 1)[0]
+os.makedirs(out_dir, exist_ok=True)
+
+cmd = [
+    "ffmpeg", "-loglevel", "error", "-i", src,
+    "-vf", f"fps={FPS},scale={W}:{H}:flags=area",
+    "-pix_fmt", "rgb24", "-f", "rawvideo", "-"
+]
+proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, bufsize=W * H * 3 * 64)
+size = W * H * 3
+
+keys = [
+    "luma", "contrast", "p05", "p95", "sat", "hue", "warm",
+    "diff", "hist", "tx", "ty", "zoom", "rot", "local", "flowmag"
+]
+m = {k: [] for k in keys}
+prev_g = prev_h = None
+ys, xs = np.mgrid[0:H, 0:W].astype(np.float32)
+xs -= W / 2
+ys -= H / 2
+r2 = xs * xs + ys * ys + 1e-6
+
+while True:
+    buf = proc.stdout.read(size)
+    if len(buf) < size:
+        break
+    rgb = np.frombuffer(buf, np.uint8).reshape(H, W, 3)
+    g = cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY)
+    hsv = cv2.cvtColor(rgb, cv2.COLOR_RGB2HSV)
+    lum = g.astype(np.float32)
+
+    m["luma"].append(float(lum.mean()))
+    m["contrast"].append(float(lum.std()))
+    p = np.percentile(lum, [5, 95])
+    m["p05"].append(float(p[0]))
+    m["p95"].append(float(p[1]))
+
+    s = hsv[..., 1].astype(np.float32)
+    m["sat"].append(float(s.mean()))
+
+    # Saturation-weighted circular mean hue (0..360)
+    ang = hsv[..., 0].astype(np.float32) * (np.pi / 90)
+    wgt = s * (hsv[..., 2] > 30)
+    m["hue"].append(float((np.degrees(np.arctan2((np.sin(ang) * wgt).sum(), (np.cos(ang) * wgt).sum())) % 360)))
+
+    r, gg, b = [rgb[..., i].astype(np.float32).mean() for i in range(3)]
+    m["warm"].append(float(r - b))
+
+    h = cv2.calcHist([hsv], [0, 1], None, [18, 8], [0, 180, 0, 256])
+    cv2.normalize(h, h, 1, 0, cv2.NORM_L1)
+
+    if prev_g is None:
+        for k in ["diff", "hist", "tx", "ty", "zoom", "rot", "local", "flowmag"]:
+            m[k].append(0.0)
+    else:
+        m["diff"].append(float(np.abs(lum - prev_g.astype(np.float32)).mean()))
+        m["hist"].append(float(cv2.compareHist(prev_h, h, cv2.HISTCMP_BHATTACHARYYA)))
+        f = cv2.calcOpticalFlowFarneback(prev_g, g, None, 0.5, 3, 15, 3, 5, 1.2, 0)
+        fx, fy = f[..., 0], f[..., 1]
+        tx, ty = float(np.median(fx)), float(np.median(fy))
+        rx, ry = fx - tx, fy - ty
+        zoom = float(((rx * xs + ry * ys) / r2).mean())
+        rot = float(((ry * xs - rx * ys) / r2).mean())
+        resid = np.sqrt((rx - zoom * xs) ** 2 + (ry - zoom * ys) ** 2)
+        m["tx"].append(tx)
+        m["ty"].append(ty)
+        m["zoom"].append(zoom)
+        m["rot"].append(rot)
+        m["local"].append(float(np.percentile(resid, 90)))
+        m["flowmag"].append(float(np.sqrt(fx**2 + fy**2).mean()))
+    prev_g, prev_h = g, h
+
+proc.wait()
+
+arr = {k: np.asarray(v, np.float32) for k, v in m.items()}
+np.savez_compressed(os.path.join(out_dir, f"{vid}.npz"), **arr)
+
+# Cut detection (Bhattacharyya histogram jump + pixel diff jump)
+d, hd = arr["diff"], arr["hist"]
+n = len(d)
+cuts, dissolves = [], []
+for i in range(1, n):
+    lo, hi = max(1, i - 15), min(n, i + 16)
+    neigh = np.median(hd[lo:hi])
+    if hd[i] > 0.28 and d[i] > 12 and hd[i] > 3 * neigh + 0.05:
+        if not cuts or i - cuts[-1] > 6:
+            cuts.append(i)
+
+# Dissolve detection
+win = 12
+cs = np.convolve(hd, np.ones(win), "same")
+i = 0
+while i < n:
+    if cs[i] > 1.2 and not any(abs(i - c) < win for c in cuts):
+        j = i
+        while j < n and cs[j] > 0.6:
+            j += 1
+        if j - i >= 8:
+            dissolves.append((i, j))
+        i = j + 1
+    else:
+        i += 1
+
+fades = [int(k) for k in np.where((arr["luma"][1:] < 8) & (arr["luma"][:-1] >= 8))[0]]
+bounds = sorted(set([0] + cuts + [a for a, _ in dissolves] + [n]))
+shots = [(bounds[k], bounds[k + 1]) for k in range(len(bounds) - 1) if bounds[k + 1] - bounds[k] > 3]
+
+json.dump({
+    "id": vid, "frames": n, "fps": FPS,
+    "cuts": cuts, "dissolves": dissolves, "fades_to_black": fades,
+    "shots": shots
+}, open(os.path.join(out_dir, f"{vid}_shots.json"), "w"))
+
+print(f"{vid}: {n} frames, {len(cuts)} cuts, {len(dissolves)} dissolves, {len(shots)} shots")
