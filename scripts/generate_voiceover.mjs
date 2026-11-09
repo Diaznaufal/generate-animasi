@@ -59,8 +59,10 @@ const env = loadEnv();
 // 3. PARSING ARGUMEN CLI (PROVIDER & VOICE)
 // ============================================================================
 // Penggunaan:
-// node scripts/generate_voiceover.mjs (Default: Microsoft Edge TTS - id-ID-GadisNeural)
-// node scripts/generate_voiceover.mjs --voice=id-ID-ArdiNeural (Microsoft Edge TTS Pria)
+// node scripts/generate_voiceover.mjs (Default: Edge TTS - id-ID-ArdiNeural)
+// node scripts/generate_voiceover.mjs --script=path/to/script.md (Membaca file naskah)
+// node scripts/generate_voiceover.mjs --text="Naskah langsung di sini"
+// node scripts/generate_voiceover.mjs --voice=id-ID-GadisNeural (Suara Wanita)
 // node scripts/generate_voiceover.mjs --provider=elevenlabs (Beralih ke ElevenLabs)
 const args = process.argv.slice(2);
 function getArg(name, fallback) {
@@ -73,11 +75,36 @@ function getArg(name, fallback) {
 }
 
 const PROVIDER = getArg("provider", env.TTS_PROVIDER || "edge").toLowerCase();
-const EDGE_VOICE = getArg("voice", env.EDGE_TTS_VOICE || "id-ID-GadisNeural");
+const EDGE_VOICE = getArg("voice", env.EDGE_TTS_VOICE || "id-ID-ArdiNeural");
 const ELEVEN_VOICE = getArg(
   "eleven-voice",
   env.ELEVENLABS_VOICE_ID || "pNInz6obpgDQGcFmaJgB",
 ); // Adam
+
+// Ambil teks narasi dari file, parameter --text, atau fallback default
+const scriptArg = getArg("script", null);
+const directTextArg = getArg("text", null);
+let textToSpeak = FULL_TEXT;
+
+if (directTextArg) {
+  textToSpeak = directTextArg;
+} else if (scriptArg) {
+  const scriptPath = path.resolve(scriptArg);
+  if (fs.existsSync(scriptPath)) {
+    console.log(`📄 Membaca naskah dari file: ${scriptPath}`);
+    const rawContent = fs.readFileSync(scriptPath, "utf-8");
+    // Bersihkan header markdown jika ada
+    const cleaned = rawContent
+      .split("\n")
+      .filter((line) => !line.trim().startsWith("#") && !line.trim().startsWith("---"))
+      .join(" ")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (cleaned) textToSpeak = cleaned;
+  } else {
+    console.warn(`⚠️  File naskah '${scriptArg}' tidak ditemukan, menggunakan naskah default.`);
+  }
+}
 
 // ============================================================================
 // 4. GENERATOR MICROSOFT EDGE TTS (100% GRATIS & TANPA API KEY)
@@ -98,7 +125,8 @@ async function generateEdgeTTS(text, voice) {
 
   try {
     console.log(`⏳ Sedang meng-generate audio dengan edge-tts...`);
-    await execFileAsync("python", [
+    const pythonCmd = process.platform === "win32" ? "python" : "python3";
+    await execFileAsync(pythonCmd, [
       "-m",
       "edge_tts",
       "--voice",
@@ -211,7 +239,7 @@ async function generateElevenLabs(text, voiceId) {
 async function main() {
   console.log("=================================================");
   console.log("🎬 Remotion Modular Voiceover Generator");
-  console.log("Topik: Kenapa Bata Disusun Selang-Seling");
+  console.log(`Topik/Cuplikan: "${textToSpeak.slice(0, 50)}..."`);
   console.log("=================================================");
 
   // Pastikan folder tujuan ada
@@ -221,21 +249,18 @@ async function main() {
   }
 
   if (PROVIDER === "elevenlabs") {
-    await generateElevenLabs(FULL_TEXT, ELEVEN_VOICE);
+    await generateElevenLabs(textToSpeak, ELEVEN_VOICE);
   } else {
     // Default: Microsoft Edge TTS (Gratis, Tanpa API Key)
-    await generateEdgeTTS(FULL_TEXT, EDGE_VOICE);
+    await generateEdgeTTS(textToSpeak, EDGE_VOICE);
   }
 
   console.log("\n🎉 Selesai! Suara narasi siap diputar di Remotion Studio.");
-  console.log("💡 Tips: Untuk beralih provider, jalankan:");
-  console.log("   • Suara Wanita (Default):  npm run generate-audio");
-  console.log(
-    "   • Suara Pria Edge TTS:    npm run generate-audio -- --voice=id-ID-ArdiNeural",
-  );
-  console.log(
-    "   • ElevenLabs (Final):      npm run generate-audio -- --provider=elevenlabs",
-  );
+  console.log("💡 Tips: Untuk beralih provider/naskah, jalankan:");
+  console.log("   • Suara Pria (Default):  npm run generate-audio");
+  console.log("   • Dari File Naskah:      npm run generate-audio -- --script=path/to/script.md");
+  console.log("   • Suara Wanita:          npm run generate-audio -- --voice=id-ID-GadisNeural");
+  console.log("   • ElevenLabs:            npm run generate-audio -- --provider=elevenlabs");
 }
 
 main();
