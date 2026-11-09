@@ -1,43 +1,104 @@
 ---
 name: timeforge-style
-description: Standar produksi dan style preset video 3D explainer taktis/sejarah bergaya @TimeForge_id (34 detik, 30 FPS). Mengatur preset visual (luma 126.8, warm amber R-B +21.4, hard directional shadows), editing cadence (cut per 3.3 detik), voiceover pria bariton (131 Hz, ~125 WPM), dan formula 4-beat scriptwriting. Digunakan untuk memproduksi video baru dengan gaya yang 100% konsisten.
-version: 1.0.0
+description: Standar produksi dan style preset video 3D explainer taktis/sejarah bergaya @TimeForge_id (34 detik, 30 FPS). Mengatur preset visual (luma 126.8, warm amber R-B +21.4, hard directional shadows), editing cadence (cut per 3.3 detik), voiceover pria bariton (131 Hz, ~125 WPM), dan formula 4-beat scriptwriting. Terintegrasi penuh dengan ekosistem skill Remotion (remotion-markup 3D, remotion-captions, remotion-best-practices, dan remotion-render).
+version: 1.1.0
 ---
 
-# TimeForge Style Production Guide & Skill Chain
+# TimeForge Style Production Guide & Remotion Skill Chain
 
-Panduan spesifikasi teknis dan eksekusi produksi video Remotion 3D explainer Shorts (1080x1920, 30 FPS) berbasis data terukur dari reverse-engineering channel `@TimeForge_id`.
+Panduan spesifikasi teknis dan eksekusi produksi video Remotion 3D explainer Shorts (1080x1920, 30 FPS) berbasis data terukur reverse-engineering channel `@TimeForge_id`, terintegrasi penuh dengan best-practices Remotion.
 
-## 1. RANTAI SKILL (SKILL CHAINING WORKFLOW)
+---
 
-Skill ini berperan sebagai **Director & Style Preset**. Saat mengeksekusi proyek video baru, panggil dan hubungkan secara berurutan:
+## 1. RANTAI SKILL REMOTION LENGKAP (SKILL CHAINING WORKFLOW)
+
+Setiap tahapan produksi wajib mengadopsi aturan dari skill Remotion terkait:
 
 ```text
-[Input Ide/Topik]
-       │
-       ▼
-1. `timeforge-style` (Skill ini)
-   -> Menetapkan preset naskah 4-beat, WPM ~125, lighting Three.js, dan cut cadence 3.3s.
-       │
-       ▼
-2. `scripts/generate_voiceover.mjs`
-   -> Generate audio via Edge TTS (`id-ID-ArdiNeural`) atau ElevenLabs (Adam/Marcus).
-       │
-       ▼
-3. `animation-director`
-   -> Sinkronisasi audio aktual `narasi.mp3` ke DURATION_IN_FRAMES dan layout subtitle 26px di bottom 90px.
-       │
-       ▼
-4. `viral-3d-explainer`
-   -> Validasi quality gates (Ground Y=0, kamera eye-level, transisi shot-by-shot).
-       │
-       ▼
-[Render Remotion MP4]
+                     [Input Ide / Topik Sejarah]
+                                  │
+                                  ▼
+[FASE 1: PRE-PRODUKSI & NASKAH]
+• Skill `timeforge-style` (Formula 4-Beat: Inversion Hook -> Tension -> Pivot -> CTA)
+• Skill `remotion-best-practices` (Pacing narasi ~125 WPM, pembagian shot per 3.3s)
+• Output: Naskah 68-72 kata siap di-generate ke audio
+                                  │
+                                  ▼
+[FASE 2: VOICE-OVER & AUDIO TIMING]
+• `scripts/generate_voiceover.mjs` (Edge TTS `id-ID-ArdiNeural` F0 ~131 Hz)
+• Skill `animation-director` (Kunci DURATION_IN_FRAMES dari durasi aktual audio)
+• Output: `public/audio/narasi.mp3` & `narasi.srt`
+                                  │
+                                  ▼
+[FASE 3: 3D SCENE & MOTION CORE]
+• Skill `remotion-markup` (Sub-skill `3d.md` & `sequencing.md`):
+  - Wajib `<ThreeCanvas width={width} height={height}>`.
+  - DILARANG KERAS `useFrame()`! Animasi 100% wajib driven by `useCurrentFrame()`.
+  - Gunakan `interpolate()` / `spring()` untuk rotasi, pergerakan, dan kamera.
+• Skill `timeforge-style` (Lighting: warm amber +21.4, directional keylight 2.4).
+• Skill `viral-3d-explainer` (Ground plane Y=0, kamera eye-level Y=2.2-4.5).
+                                  │
+                                  ▼
+[FASE 4: CAPTIONS & OVERLAY]
+• Skill `remotion-captions` (Sub-skill `display-captions.md`):
+  - Dynamic subtitle box di `bottom: 90px`, font 26px uppercase bold 900.
+  - Active word highlight kuning `#FACC15` sinkron audio narasi.
+                                  │
+                                  ▼
+[FASE 5: RENDER & QUALITY CHECK]
+• Skill `remotion-render`:
+  - `npx remotion render <CompositionId> out/video.mp4`
+  - Verifikasi: 0 dead-frame, audio tidak balap subtitle, render 30 FPS stabil.
 ```
 
 ---
 
-## 2. SPESIFIKASI VISUAL THREE.JS & COLOR GRADING
+## 2. ATURAN TEKNIS REMOTION 3D (`remotion-markup`)
+
+Wajib mengikuti pedoman dari `remotion-markup/3d.md`:
+
+1. **Struktur Canvas:**
+   ```tsx
+   import { ThreeCanvas } from "@remotion/three";
+   import { useVideoConfig, useCurrentFrame, interpolate, spring } from "remotion";
+
+   export const SceneShot: React.FC = () => {
+     const { width, height, fps } = useVideoConfig();
+     const frame = useCurrentFrame();
+
+     // Animasi deterministik murni fungsi frame
+     const cameraAngle = interpolate(frame, [0, 100], [0, Math.PI / 6]);
+
+     return (
+       <ThreeCanvas width={width} height={height}>
+         {/* Lighting Setup TimeForge */}
+         <ambientLight intensity={0.45} color="#94a3b8" />
+         <directionalLight
+           position={[5, 8, 4]}
+           intensity={2.4}
+           color="#fef08a"
+           castShadow
+           shadow-mapSize={[2048, 2048]}
+         />
+         <mesh rotation={[0, cameraAngle, 0]}>
+           {/* Objek 3D */}
+         </mesh>
+       </ThreeCanvas>
+     );
+   };
+   ```
+
+2. **Larangan `useFrame()`:**
+   - Dilarang menggunakan `useFrame()` dari `@react-three/fiber` karena memicu frame skipping dan flickering saat multi-threaded render.
+   - Semua pergerakan mesh, material, dan kamera harus dihitung dari `useCurrentFrame()`.
+
+3. **Audio Handling (`remotion-markup/audio.md`):**
+   - Pasang `<Audio src={staticFile("audio/narasi.mp3")} />` di root `<AbsoluteFill>` di luar `<Series>`.
+   - Audio mengalir utuh dari awal sampai akhir tanpa potongan per adegan.
+
+---
+
+## 3. SPESIFIKASI VISUAL & LIGHTING TIMEFORGE
 
 Berdasarkan analisis empiris 19.569 frame:
 
@@ -49,21 +110,9 @@ Berdasarkan analisis empiris 19.569 frame:
 | **Saturasi Warna** | **93.6 / 255** (36.7%) | Earthy tones: cokelat kayu, tembaga/perunggu, terracotta, emas. |
 | **Bayangan (Shadow)** | **Hard Directional + AO** | Jatuh tegas ke tanah $Y = 0$. Bayangan kontak pekat. |
 
-### Template Lighting Siap Pakai:
-```tsx
-<ambientLight intensity={0.45} color="#94a3b8" />
-<directionalLight
-  position={[5, 8, 4]}
-  intensity={2.4}
-  color="#fef08a" // Warm amber sunlight
-  castShadow
-  shadow-mapSize={[2048, 2048]}
-/>
-```
-
 ---
 
-## 3. EDITING CADENCE & KAMERA DINAMIS
+## 4. EDITING CADENCE & KAMERA DINAMIS
 
 - **Target Durasi:** Tepat **34 detik** (~1.020–1.040 frame @ 30 FPS).
 - **Frekuensi Cut:** **10 s.d. 12 shot** per video.
@@ -75,7 +124,7 @@ Berdasarkan analisis empiris 19.569 frame:
 
 ---
 
-## 4. AUDIO & 4-BEAT SCRIPTWRITING BLUEPRINT
+## 5. AUDIO & 4-BEAT SCRIPTWRITING BLUEPRINT
 
 ### Profil Suara
 - **Pitch:** Pria bariton berwibawa (~131 Hz).
@@ -95,7 +144,7 @@ Berdasarkan analisis empiris 19.569 frame:
 
 ---
 
-## 5. DYNAMIC CAPTION (SUBTITLE SPEC)
+## 6. DYNAMIC CAPTIONS (`remotion-captions`)
 
 ```css
 font-size: 26px;

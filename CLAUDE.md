@@ -41,12 +41,18 @@ Repository for producing high-retention 3D explainer videos (1080x1920, 9:16 ver
 
 ## Skills & Skill Chaining Workflow
 
-Saat memproduksi video baru dengan gaya channel tertentu, lakukan **skill chaining**:
+Saat memproduksi video baru, seluruh skill terintegrasi dalam **5-fase rantai skill**:
 
-1. **`timeforge-style`**: Menetapkan naskah 4-beat, WPM ~125, lighting Three.js (warm amber +21.4, luma 126.8), dan cut cadence 3.3s.
-2. **`scripts/generate_voiceover.mjs`**: Generate audio `public/audio/narasi.mp3` dengan voiceover terukur (`id-ID-ArdiNeural`, ~131 Hz).
-3. **`animation-director`**: Kunci durasi video (`DURATION_IN_FRAMES`) dari audio aktual dan pasang subtitle 26px di `bottom: 90px`.
-4. **`viral-3d-explainer`**: Validasi scene 3D (Ground $Y=0$, objek $Y \ge 0$, kamera eye-level $Y=2.2-4.5$, tanpa dead frame).
-5. **`channel-atm`**: Tool reverse-engineering komputasional 30 FPS untuk membedah channel referensi baru di masa depan.
+1. **Pre-Produksi & Naskah**:
+   - `timeforge-style` + `remotion-best-practices`: Naskah 4-Beat (Inversion Hook, Tension, Tactical Pivot, CTA) dipadatkan ke ~125 WPM (~68-72 kata) dengan transisi shot per 3.3 detik.
+2. **Audio & Pacing**:
+   - `scripts/generate_voiceover.mjs` + `remotion-multimedia`: Generate audio TTS pria bariton (`id-ID-ArdiNeural` F0 ~131 Hz), kunci durasi `DURATION_IN_FRAMES` presisi dari metadata audio `public/audio/narasi.mp3`.
+3. **Komposisi 3D & Gerakan Kamera**:
+   - `remotion-markup` (`3d.md`, `sequencing.md`, `audio.md`) + `viral-3d-explainer`: Canvas Three.js deterministik via `useCurrentFrame()` (DILARANG `useFrame()`), modular `<Series.Sequence>`, ground $Y=0$, kamera eye-level $Y=2.2-4.5$, dan pencahayaan warm amber (+21.4).
+4. **Dynamic Captions**:
+   - `remotion-captions` (`display-captions.md`) + `animation-director`: Subtitle dinamis 26px font tebal 900 di `bottom: 90px`, warna aktif kuning `#FACC15` dengan sinkronisasi kata per kata.
+5. **Render & Quality Check**:
+   - `remotion-render`: Export MP4 1080x1920 30 FPS (`npx remotion render`), verifikasi bebas dead frame dan audio-sync akurat.
+
 
 
