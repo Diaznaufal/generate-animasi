@@ -38,3 +38,10 @@ Repository for producing high-retention 3D explainer videos (1080x1920, 9:16 ver
    - Calculate `DURATION_IN_FRAMES` directly from audio duration:
      `durationInFrames = Math.ceil(audioDurationInSeconds * FPS)`
    - Never hardcode or guess video duration without verifying `public/audio/narasi.mp3`.
+
+## Skills & Reference Workflows
+
+- **`channel-atm`:** Reverse-engineering dan ATM channel referensi YouTube (analisis 30 FPS lighting, contrast, shadow, camera motion, editing cadence, dan naskah/storytelling).
+- **`viral-3d-explainer`:** SOP gate kualitas multi-environment 3D explainer style comic/clay.
+- **`animation-director`:** SOP komposisi scene Remotion, audio-sync, dan dynamic captions.
+
