@@ -43,6 +43,5 @@ Repository untuk memproduksi video animasi edukasi & sejarah viral format vertik
 
 ## Skills
 
-- **`timeforge-style`:** Spesifikasi lengkap 2D Stickman Comic Explainer (peta perkamen, ekspresi kartun, kinetic typography).
+- **`timeforge-2d-short`:** Master SOP & blueprint lengkap 2D Vector Stickman Comic Explainer (naskah 4-beat, artikulasi stickman, detik 0 cover badge, kinetic typography di dada).
 - **`channel-atm`:** Tool komputasi visual & audio frame-by-frame 30 FPS untuk reverse-engineering channel referensi.
-- **`animation-director`:** SOP perakitan scene Remotion shot-by-shot dan sinkronisasi audio.
