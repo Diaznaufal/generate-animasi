@@ -40,8 +40,9 @@ Repository untuk memproduksi video animasi edukasi & sejarah viral format vertik
    - Judul memudar di frame 45, badge merapat halus (docking) ke pojok atas di frame 60.
    - Ekspor still frame 30 ke `out/cover.png` untuk verifikasi cover.
 
-5. **Audio & Narasi:**
-   - Naskah 4-Beat: Inversion Hook (0-3s) $\rightarrow$ Rising Conflict (4-15s) $\rightarrow$ Tactical Pivot (16-28s) $\rightarrow$ CTA (29-34s).
+5. **Durasi & Audio Narasi (Wajib Minimal 1 Menit):**
+   - Durasi Standar: Minimal 60 detik (60–70s @ 30 FPS = 1800–2100 frames, ~135–160 kata).
+   - Naskah 5-Beat: Inversion Hook (0-6s) $\rightarrow$ Scale & Geography (6-20s) $\rightarrow$ Enemy Siege (20-35s) $\rightarrow$ Tactical Secret (35-48s) $\rightarrow$ Triumph & CTA (48-65s).
    - Kunci `durationInFrames = Math.ceil(audioDurationInSeconds * FPS)` langsung dari audio `public/audio/narasi.mp3`.
    - Pasang `<Audio />` di root `<AbsoluteFill>` di luar `<Series>`.
 
