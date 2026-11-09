@@ -1,10 +1,7 @@
-Bukan di Eropa atau Tiongkok, benteng terluas di dunia ada di Indonesia!
-Namanya Benteng Keraton Buton, membentang seluas dua puluh tiga hektar dengan keliling hampir tiga kilometer.
-Tapi ada satu rahasia gila di balik dinding setebal dua meter ini.
-Masyarakat Buton merekatkannya bukan pakai semen, melainkan adonan batu kapur dan putih telur!
-Saat armada penjajah menghujani meriam dari laut, dinding batu ini menyerap getaran dan sama sekali tak goyah!
-Berdiri di atas bukit, pasukan kerajaan menguasai pandangan tiga ratus enam puluh derajat ke seluruh Selat Buton.
-Dilengkapi enam belas benteng pengintai dan meriam di setiap sudut, tak ada musuh yang bisa mendekat tanpa terlihat.
-Hasilnya, benteng ini tak pernah berhasil ditaklukkan oleh bangsa penjajah mana pun.
-Bahkan Guinness World Records resmi menobatkannya sebagai benteng terluas di muka bumi.
-Kamu sendiri udah pernah menginjakkan kaki di benteng ini belum?
+Bukan meriam Eropa yang bikin Belanda frustrasi saat menyerang Keraton Buton!
+
+Benteng ini dikelilingi jurang terjal dan dinding batu kapur setinggi delapan meter. Meriam musuh menembak membabi buta, tapi dindingnya tak bergeming sedikit pun!
+
+Rahasianya? Prajurit Kesultanan Buton merekatkan ribuan ton batu gunung menggunakan putih telur dan kapur karang. Benteng seluas dua puluh tiga hektar ini pun tak pernah berhasil dijebol!
+
+Benteng terluas di dunia ini berdiri di Indonesia! Menurut kalian, bisakah semen modern menandinginya?
