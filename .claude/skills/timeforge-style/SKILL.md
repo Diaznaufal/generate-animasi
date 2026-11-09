@@ -1,163 +1,260 @@
 ---
 name: timeforge-style
-description: Standar produksi dan style preset video 3D explainer taktis/sejarah bergaya @TimeForge_id (34 detik, 30 FPS). Mengatur preset visual (luma 126.8, warm amber R-B +21.4, hard directional shadows), editing cadence (cut per 3.3 detik), voiceover pria bariton (131 Hz, ~125 WPM), dan formula 4-beat scriptwriting. Terintegrasi penuh dengan ekosistem skill Remotion (remotion-markup 3D, remotion-captions, remotion-best-practices, dan remotion-render).
-version: 1.1.0
+description: Use when producing, animating, or scripting 2D vector stickman comic explainer videos (1080x1920 9:16 vertical Shorts, 30 FPS) in the style of @TimeForge_id for any historical, tactical, or educational topic.
 ---
 
-# TimeForge Style Production Guide & Remotion Skill Chain
+# TimeForge Style (2D Stickman Comic Explainer Engine)
 
-Panduan spesifikasi teknis dan eksekusi produksi video Remotion 3D explainer Shorts (1080x1920, 30 FPS) berbasis data terukur reverse-engineering channel `@TimeForge_id`, terintegrasi penuh dengan best-practices Remotion.
+## Overview
+Replikasi gaya visual dan narasi channel `@TimeForge_id`: animasi 2D vector stick figure ekspresif bergaya komik/manga aksi berlatar perkamen kuno (*aged parchment*) dengan subtitle kata-per-kata punchy (*kinetic typography*) di tengah dada karakter.
+
+Dilarang membuat model 3D (Three.js/mesh kubus/silinder). Seluruh visual dibangun menggunakan SVG 2D dinamis di Remotion (React 19).
 
 ---
 
-## 1. RANTAI SKILL REMOTION LENGKAP (SKILL CHAINING WORKFLOW)
+## When to Use
+- Membuat video explainer vertikal (9:16 1080x1920 @ 30 FPS) bertema sejarah, pertempuran, pahlawan, atau misteri masa lalu.
+- Menulis naskah narasi cepat 4-beat (Inversion Hook $\rightarrow$ Rising Conflict $\rightarrow$ Tactical Pivot $\rightarrow$ Climax/CTA) berdurasi 30–35 detik (~75–90 kata).
+- Mengorkestrasi karakter stickman 2D ekspresif multi-pose (lunge action, bangga, menunjuk, panik) dengan aksesori budaya (peci, ikat kepala, sorban, topi kolonial) dan senjata (keris, pedang, bendera).
 
-Setiap tahapan produksi wajib mengadopsi aturan dari skill Remotion terkait:
+### When NOT to Use
+- Video 3D simulasi fisika atau renders Three.js realistis.
+- Video dokumenter live-action berbasis footage video asli.
+- Video teks minimalis biasa tanpa karakter atau efek komik aksi.
 
-```text
-                     [Input Ide / Topik Sejarah]
-                                  │
-                                  ▼
-[FASE 1: PRE-PRODUKSI & NASKAH]
-• Skill `timeforge-style` (Formula 4-Beat: Inversion Hook -> Tension -> Pivot -> CTA)
-• Skill `remotion-best-practices` (Pacing narasi ~125 WPM, pembagian shot per 3.3s)
-• Output: Naskah 68-72 kata siap di-generate ke audio
-                                  │
-                                  ▼
-[FASE 2: VOICE-OVER & AUDIO TIMING]
-• `scripts/generate_voiceover.mjs` (Edge TTS `id-ID-ArdiNeural` F0 ~131 Hz)
-• Skill `animation-director` (Kunci DURATION_IN_FRAMES dari durasi aktual audio)
-• Output: `public/audio/narasi.mp3` & `narasi.srt`
-                                  │
-                                  ▼
-[FASE 3: 3D SCENE & MOTION CORE]
-• Skill `remotion-markup` (Sub-skill `3d.md` & `sequencing.md`):
-  - Wajib `<ThreeCanvas width={width} height={height}>`.
-  - DILARANG KERAS `useFrame()`! Animasi 100% wajib driven by `useCurrentFrame()`.
-  - Gunakan `interpolate()` / `spring()` untuk rotasi, pergerakan, dan kamera.
-• Skill `timeforge-style` (Lighting: warm amber +21.4, directional keylight 2.4).
-• Skill `viral-3d-explainer` (Ground plane Y=0, kamera eye-level Y=2.2-4.5).
-                                  │
-                                  ▼
-[FASE 4: CAPTIONS & OVERLAY]
-• Skill `remotion-captions` (Sub-skill `display-captions.md`):
-  - Dynamic subtitle box di `bottom: 320px` (Safe Zone), font 26px uppercase bold 900.
-  - Active word highlight kuning `#FACC15` sinkron audio narasi.
-                                  │
-                                  ▼
-[FASE 5: RENDER & QUALITY CHECK]
-• Skill `remotion-render`:
-  - `npx remotion render <CompositionId> out/video.mp4`
-  - Verifikasi: 0 dead-frame, audio tidak balap subtitle, render 30 FPS stabil.
+---
+
+## 1. FORMULA NASKAH 4-BEAT (THE SCRIPT GENERATOR)
+
+Setiap video TimeForge berdurasi optimal **30–34 detik** (~75–85 kata bahasa Indonesia) dibawakan dengan tempo cepat (~150–160 WPM). Naskah dibagi menjadi 4 beat dramatis:
+
+### Struktur Naskah
+```
+[BEAT 1: THE INVERSION HOOK] (0-3 detik / 10-14 kata)
+Menghancurkan asumsi umum penonton dengan fakta tak terduga.
+Contoh: "Bukan meriam atau ribuan pasukan yang bikin Belanda frustrasi di Buton!"
+
+[BEAT 2: THE RISING CONFLICT] (4-14 detik / 25-30 kata)
+Meningkatkan taruhan, skala musuh, atau bahaya yang mencekam.
+Contoh: "Benteng Keraton Buton dikelilingi jurang terjal dan dinding batu kapur setinggi delapan meter. Kapal perang musuh dihujani tembakan meriam sebelum sempat mendarat!"
+
+[BEAT 3: THE TACTICAL PIVOT] (15-26 detik / 30-35 kata)
+Mengungkap kecerdikan taktik, senjata rahasia, atau titik balik peristiwa.
+Contoh: "Prajurit Kesultanan merekatkan batu menggunakan putih telur dan kapur karang. Hasilnya? Benteng seluas 23 hektar ini tak pernah berhasil dijebol satu peluru pun!"
+
+[BEAT 4: RHETORICAL RETORT / CTA] (27-32 detik / 10-15 kata)
+Pernyataan penutup menggelegar dan pertanyaan yang memicu komentar penonton.
+Contoh: "Benteng terluas di dunia ini berdiri di Indonesia! Menurut kalian, bisakah taktik kuno ini ditiru zaman sekarang?"
 ```
 
----
-
-## 2. ATURAN TEKNIS REMOTION 3D (`remotion-markup`)
-
-Wajib mengikuti pedoman dari `remotion-markup/3d.md`:
-
-1. **Struktur Canvas:**
-   ```tsx
-   import { ThreeCanvas } from "@remotion/three";
-   import { useVideoConfig, useCurrentFrame, interpolate, spring } from "remotion";
-
-   export const SceneShot: React.FC = () => {
-     const { width, height, fps } = useVideoConfig();
-     const frame = useCurrentFrame();
-
-     // Animasi deterministik murni fungsi frame
-     const cameraAngle = interpolate(frame, [0, 100], [0, Math.PI / 6]);
-
-     return (
-       <ThreeCanvas width={width} height={height}>
-         {/* Lighting Setup TimeForge */}
-         <ambientLight intensity={0.45} color="#94a3b8" />
-         <directionalLight
-           position={[5, 8, 4]}
-           intensity={2.4}
-           color="#fef08a"
-           castShadow
-           shadow-mapSize={[2048, 2048]}
-         />
-         <mesh rotation={[0, cameraAngle, 0]}>
-           {/* Objek 3D */}
-         </mesh>
-       </ThreeCanvas>
-     );
-   };
+### Prompt Pembuat Naskah Otomatis
+Jika diminta membuat topik baru (misal: Benteng Buton, Pangeran Diponegoro, Perang Padri):
+1. **Input:** Nama Topik & Fakta Unik Utama.
+2. **Generate:** 4 paragraf beat sesuai batasan kata di atas.
+3. **Simpan ke:** `scripts/naskah.md` atau `public/audio/narasi.txt`.
+4. **Generate Audio:** Jalankan generator suara:
+   ```bash
+   node scripts/generate_voiceover.mjs --script=scripts/naskah.md --out=public/audio/narasi.mp3
    ```
 
-2. **Larangan `useFrame()`:**
-   - Dilarang menggunakan `useFrame()` dari `@react-three/fiber` karena memicu frame skipping dan flickering saat multi-threaded render.
-   - Semua pergerakan mesh, material, dan kamera harus dihitung dari `useCurrentFrame()`.
-
-3. **Audio Handling (`remotion-markup/audio.md`):**
-   - Pasang `<Audio src={staticFile("audio/narasi.mp3")} />` di root `<AbsoluteFill>` di luar `<Series>`.
-   - Audio mengalir utuh dari awal sampai akhir tanpa potongan per adegan.
-
 ---
 
-## 3. SPESIFIKASI VISUAL & LIGHTING TIMEFORGE
+## 2. MODULAR COMPONENT LIBRARY (`src/components/timeforge`)
 
-Berdasarkan analisis empiris 19.569 frame:
+Gunakan komponen siap pakai yang telah dioptimalkan di `src/components/timeforge`:
 
-| Parameter Visual | Nilai Target | Implementasi Teknis (Three.js / CSS) |
-|---|---|---|
-| **Luma (Kecerahan)** | **126.8 / 255** (49.7%) | Mid-tone sinematik. `luma_p05 = 69.6`, `luma_p95 = 180.3`. |
-| **Kontras (Std Dev)** | **50.5** | Kontras tinggi dramatis, menonjolkan siluet objek 3D. |
-| **Suhu Warna (R - B)** | **+21.4 (Warm Amber)** | Pencahayaan kekuningan/emas kerajaan & obor api. |
-| **Saturasi Warna** | **93.6 / 255** (36.7%) | Earthy tones: cokelat kayu, tembaga/perunggu, terracotta, emas. |
-| **Bayangan (Shadow)** | **Hard Directional + AO** | Jatuh tegas ke tanah $Y = 0$. Bayangan kontak pekat. |
-
----
-
-## 4. EDITING CADENCE & KAMERA DINAMIS
-
-- **Target Durasi:** Tepat **34 detik** (~1.020–1.040 frame @ 30 FPS).
-- **Frekuensi Cut:** **10 s.d. 12 shot** per video.
-- **Durasi per Shot:** **3.3 detik (~100 frame)** per `<Series.Sequence>`.
-- **Pergerakan Kamera:**
-  - Optical flow terjaga di ~0.74 px/frame (selalu ada slow pan, slow push-in, atau orbital 3D).
-  - Hindari kamera statis diam (*dead frame*).
-  - Transisi antar-adegan: **85% Straight Hard Cut**, 15% Dynamic Zoom-in. Hindari slow dissolve.
-
----
-
-## 5. AUDIO & 4-BEAT SCRIPTWRITING BLUEPRINT
-
-### Profil Suara
-- **Pitch:** Pria bariton berwibawa (~131 Hz).
-- **Engine Default:** Microsoft Edge TTS suara `id-ID-ArdiNeural`.
-- **Pacing:** **120 – 125 WPM** (~2.0 – 2.1 kata/detik atau ~14-15 frame per kata @ 30 FPS).
-
-### Formula Naskah 4-Beat (Total ~68–72 Kata)
-
-1. **Beat 1: The Inversion Hook (Detik 0–3 | ~90 frame | ~7–9 kata)**
-   - Hancurkan anggapan umum di kalimat pertama (*"Bukan dari Eropa...", "Perang yang nyaris bikin bangkrut..."*).
-2. **Beat 2: The Tension Builder (Detik 4–15 | ~330 frame | ~22–25 kata)**
-   - Skala konflik, bahaya nyata, atau tantangan ekstrem yang mengancam.
-3. **Beat 3: The Tactical Pivot (Detik 16–28 | ~360 frame | ~25–28 kata)**
-   - Senjata rahasia, kecerdikan arsitektur, atau strategi pembalik keadaan (menggunakan analogi mekanik yang mudah dibayangkan).
-4. **Beat 4: Long-Term Impact & Interactive CTA (Detik 29–34 | ~180 frame | ~12–14 kata)**
-   - Warisan sejarah yang diakui dunia + pertanyaan penutup interaktif untuk memicu komentar.
-
----
-
-## 6. DYNAMIC CAPTIONS (`remotion-captions`)
-
-Posisi subtitle wajib mematuhi **Mobile Safe Zone** (bebas dari overlay avatar, judul, dan tombol platform YouTube Shorts/TikTok):
-
-```css
-font-size: 26px;
-font-weight: 900;
-text-transform: uppercase;
-color: #FFFFFF;
-background-color: rgba(15, 23, 42, 0.85);
-backdrop-filter: blur(12px);
-border-radius: 14px;
-padding: 10px 24px;
-bottom: 320px; /* Safe Zone vertikal 9:16 (minimal >= 320px agar tidak tertutup UI Shorts/TikTok) */
+```tsx
+import {
+  Stickman,
+  ParchmentBg,
+  SpeedLines,
+  KineticSubtitle,
+  FlagRibbon,
+} from "./components/timeforge";
 ```
-- **Kata Aktif:** Highlight kuning tebal `#FACC15` dengan drop shadow tegas.
-- **Pacing:** Sinkronisasi kata per kata mengikuti audio narator (~2 kata per detik), dilarang balap audio.
+
+### A. `<Stickman />`
+Karakter 2D berbasis SVG dengan sendi lutut fleksibel, kepala ekspresif ber-outline 28px, dan bayangan kontak lantai terpisah (bukan bentuk jangka kaku).
+
+| Prop | Options | Deskripsi |
+|---|---|---|
+| `pose` | `"lunge_action"` \| `"proud"` \| `"point_forward"` \| `"shocked"` \| `"hold_weapon"` | Pose dinamis tubuh & kaki |
+| `face` | `"determined"` \| `"shocked"` \| `"shivering_cry"` \| `"confident"` | Ekspresi mata & mulut komik |
+| `accessory` | `"headband"` \| `"turban"` \| `"colonial_hat"` \| `"none"` | Ikat kepala merah putih / sorban / topi komandan |
+| `prop` | `"keris"` \| `"sword"` \| `"flag"` \| `"violin"` \| `"none"` | Senjata atau benda yang digenggam |
+| `scale` | `number` (default: `1.0`) | Ukuran relatif karakter |
+| `flipX` | `boolean` (default: `false`) | Menghadap kiri atau kanan |
+
+### B. `<ParchmentBg />`
+Generator latar belakang dinamis:
+- `mood="parchment"`: Peta perkamen kuno krem bertekstur vintage hangat.
+- `mood="sunburst"`: Pancaran sinar matahari keemasan berputar lambat (`0.25 deg/frame`).
+- `mood="dark_storm"`: Langit kelabu mendung medan perang dengan gradien radial tebal.
+- `mood="spotlight"`: Kerucut cahaya dramatis menyorot karakter di ruang gelap gulita.
+
+### C. `<SpeedLines />`
+Garis kecepatan manga melingkar 360 derajat di sekitar karakter untuk adegan aksi intens:
+- `intensity`: opacity pengali (default: `1.0`).
+- `centerX`, `centerY`: titik pusat fokus aksi.
+
+### D. `<FlagRibbon />`
+Pita dwi-warna merah putih meliuk bergelombang secara sinusoidal di latar depan atau tengah adegan.
+
+### E. `<KineticSubtitle />`
+Subtitle kata-per-kata yang muncul tepat di area **dada/perut karakter** (Y: 56–58%):
+- Font: `Impact, Arial Black, sans-serif` (900 ultra-bold).
+- Outline: `WebkitTextStroke: "10px #000000"`, `paintOrder: "stroke fill"`.
+- Animasi: Remotion `spring()` pop-in hentakan tajam (`damping: 9, stiffness: 290`).
+
+### F. `<CoverBadge />` (Wajib di Detik 0)
+Badge kategori & judul thumbnail tebal di detik 0 (frame 0–45) dalam safe zone IG Grid 1:1 (`Y: 420-1500`) dan 4:5:
+- `label`: nama kategori/seri (misal: "BENTENG KUNO", "SEJARAH INDONESIA").
+- `title`: hook judul thumbnail 2–4 kata (misal: "TAK PERNAH JEBOL!").
+- Animasi: Judul memudar di frame 45, badge merapat/docking halus ke sudut atas di frame 60.
+- Ekspor: Gunakan `npx remotion still <Id> out/cover.png --frame=30` untuk file cover thumbnail.
+
+---
+
+## 3. BOILERPLATE KOMPOSISI VIDEO LENGKAP
+
+Template universal untuk membuat video topik apapun:
+
+```tsx
+import React, { useMemo } from "react";
+import {
+  AbsoluteFill,
+  Audio,
+  Series,
+  interpolate,
+  staticFile,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
+import {
+  CoverBadge,
+  FlagRibbon,
+  KineticSubtitle,
+  KineticWord,
+  ParchmentBg,
+  SpeedLines,
+  Stickman,
+} from "./components/timeforge";
+
+export const VIDEO_WIDTH = 1080;
+export const VIDEO_HEIGHT = 1920;
+export const VIDEO_FPS = 30;
+
+// Subtitle kata-per-kata (disinkronkan dengan durasi frame audio)
+const SUBTITLE_CUES: KineticWord[] = [
+  { text: "BENTENG TERBESAR", startFrame: 0, endFrame: 35, emphasis: true },
+  { text: "DI DUNIA", startFrame: 35, endFrame: 65 },
+  { text: "BERADA DI INDONESIA!", startFrame: 65, endFrame: 110, emphasis: true },
+  { text: "BENTENG KERATON BUTON", startFrame: 110, endFrame: 160 },
+  { text: "TAK PERNAH DITAKLUKKAN!", startFrame: 160, endFrame: 220, emphasis: true },
+];
+
+export const UniversalTimeForgeExplainer: React.FC = () => {
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#000000" }}>
+      {/* 1. AUDIO ROOT (Wajib di luar Series) */}
+      <Audio src={staticFile("audio/narasi.mp3")} volume={1.0} />
+
+      {/* 2. COVER BADGE DETIK 0 (Thumbnail / IG Grid Safe Zone Y: 420-1500) */}
+      <CoverBadge
+        label="BENTENG KUNO"
+        title="TAK PERNAH JEBOL!"
+        titleUntil={45}
+        dockAt={60}
+      />
+
+      {/* 2. SCENE SERIES (Shot-by-Shot per 2.5 - 3.5 detik) */}
+      <Series>
+        {/* SHOT 1: THE HOOK (0 - 3.5s / 105 frames) */}
+        <Series.Sequence durationInFrames={105}>
+          <ParchmentBg mood="sunburst" />
+          <SpeedLines intensity={1.2} />
+          <FlagRibbon />
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <Stickman
+              pose="point_forward"
+              face="determined"
+              accessory="headband"
+              prop="flag"
+              scale={1.05}
+            />
+          </div>
+        </Series.Sequence>
+
+        {/* SHOT 2: THE CONFLICT (3.5 - 7.0s / 105 frames) */}
+        <Series.Sequence durationInFrames={105}>
+          <ParchmentBg mood="dark_storm" />
+          <SpeedLines intensity={0.8} />
+          {/* Karakter Lawan: Komandan Kolonial */}
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "32%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <Stickman
+              pose="shocked"
+              face="shivering_cry"
+              accessory="colonial_hat"
+              scale={0.95}
+            />
+          </div>
+          {/* Karakter Pejuang: Menghunus Keris */}
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "68%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <Stickman
+              pose="hold_weapon"
+              face="determined"
+              accessory="headband"
+              prop="keris"
+              scale={1.1}
+              flipX={true}
+            />
+          </div>
+        </Series.Sequence>
+      </Series>
+
+      {/* 3. SUBTITLE GLOBAL DI LAYER TERATAS (Tepat di Dada) */}
+      <KineticSubtitle words={SUBTITLE_CUES} top="58%" fontSize={88} />
+    </AbsoluteFill>
+  );
+};
+```
+
+---
+
+## 4. ATURAN EMAS PRODUKSI (ANTI-ERROR)
+
+1. **Wajib 2D Vector (Bukan Three.js 3D):**
+   - Jangan pernah menambahkan `@remotion/three`, `<ThreeCanvas>`, atau `<boxGeometry>` jika targetnya adalah style TimeForge.
+2. **Kaki Stickman Asimetris & Artikulasi:**
+   - Gunakan pose lunge dengan sendi lutut ditekuk dan sepatu menapak terpisah di lantai. Dilarang menggambar kaki jangka segitiga datar.
+3. **Penempatan Subtitle di Dada (Y: 56–58%):**
+   - Video TimeForge menaruh teks berukuran raksasa di atas dada karakter, bukan di bawah dekat tepi layar (footer).
+4. **Kunci Durasi dari File Audio:**
+   - Hitung durasi frame tepat:
+     ```ts
+     const DURATION_IN_FRAMES = Math.ceil(audioDurationInSeconds * 30);
+     ```
+   - Komposisi Remotion tidak boleh lebih panjang atau lebih pendek dari audio voiceover.
+5. **Cepat & Punchy:**
+   - Ganti shot (`<Series.Sequence>`) setiap 75–110 frame (2.5–3.5 detik). Selalu kombinasikan pergerakan kamera zoom mendadak atau transisi kontras (misal: dari `sunburst` cerah ke `dark_storm` gelap).
