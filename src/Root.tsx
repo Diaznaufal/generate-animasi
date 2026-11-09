@@ -15,6 +15,13 @@ import {
   VIDEO_HEIGHT as BUTON_HEIGHT,
 } from "./BentengButonExplainer";
 import {
+  CetbangMajapahitExplainer,
+  DURATION_IN_FRAMES as CETBANG_DURATION,
+  VIDEO_FPS as CETBANG_FPS,
+  VIDEO_WIDTH as CETBANG_WIDTH,
+  VIDEO_HEIGHT as CETBANG_HEIGHT,
+} from "./CetbangMajapahitExplainer";
+import {
   TimeForgeTest2D,
   DURATION_IN_FRAMES as TEST_DURATION,
   VIDEO_FPS as TEST_FPS,
@@ -48,6 +55,14 @@ export const RemotionRoot: React.FC = () => {
         fps={TEST_FPS}
         width={TEST_WIDTH}
         height={TEST_HEIGHT}
+      />
+      <Composition
+        id="CetbangMajapahitExplainer"
+        component={CetbangMajapahitExplainer}
+        durationInFrames={CETBANG_DURATION}
+        fps={CETBANG_FPS}
+        width={CETBANG_WIDTH}
+        height={CETBANG_HEIGHT}
       />
       <Composition
         id="BentengButonExplainer"

@@ -61,7 +61,13 @@ def main():
         log(f"Frame rate {fps_eval:.1f} FPS (expected 30 FPS)", "FAIL")
 
     # 2. AUDIO & SYNC DURATION CHECK
+    # Check specific audio if present in content_dir or fallback to public/audio/narasi.mp3
     narasi_audio = "public/audio/narasi.mp3"
+    topic_audio = f"public/audio/{os.path.basename(content_dir)}_narasi.mp3"
+    if os.path.exists(topic_audio):
+        narasi_audio = topic_audio
+    elif "cetbang" in content_dir and os.path.exists("public/audio/cetbang_narasi.mp3"):
+        narasi_audio = "public/audio/cetbang_narasi.mp3"
     if os.path.exists(narasi_audio):
         a_probe, _ = run_cmd("ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "json", narasi_audio)
         a_dur = float(json.loads(a_probe).get("format", {}).get("duration", 0))
