@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 """Aggregate frame metrics, shots, transcripts, and pitch data into a complete ATM markdown report."""
 import glob, json, os, sys
-import numpy as np
+try:
+    import numpy as np
+except ImportError as e:
+    sys.exit(
+        f"Missing Python dependency: {e.name}. "
+        "Install with: .venv/bin/pip install -r requirements.txt"
+    )
 
 if len(sys.argv) < 3:
     print(f"Usage: {sys.argv[0]} <metrics_dir> <transcripts_dir> [output.md]", file=sys.stderr)

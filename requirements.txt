@@ -1,0 +1,5 @@
+# Python tools: scripts/*.py and .claude/skills/channel-atm/scripts/*.py
+# Install: python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+edge-tts>=7.0
+numpy>=1.26
+opencv-python>=4.9

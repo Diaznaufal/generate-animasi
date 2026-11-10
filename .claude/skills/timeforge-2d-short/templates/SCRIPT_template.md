@@ -1,42 +1,75 @@
-# Template Naskah 4-Beat @TimeForge_id (30–35 Detik)
+# Template Naskah 5-Beat @TimeForge_id (60–70 Detik)
 
 Topik: [Nama Topik Sejarah / Pertempuran / Tokoh]
-Durasi Target: 30–34 detik (~75–85 kata)
-Voiceover: id-ID-ArdiNeural (Tempo Cepat ~150 WPM)
+Durasi Target: 60–70 detik (1800–2100 frame @ 30 FPS, ~135–160 kata)
+Voiceover: id-ID-ArdiNeural (bariton, ~130–140 WPM)
+Shot: ganti shot tiap 2.5–3.5 detik (~80–110 frame), lihat `CameraShots`
 
 ---
 
-## 1. NASKAH NARRATIVE
+## 1. LEMBAR PERENCANAAN BEAT
 
-### [BEAT 1: THE INVERSION HOOK] (00.0s – 03.5s / 10–14 kata)
-*Visual: CoverBadge Detik 0 aktif (pill Y: 470, judul Y: 560, di dalam crop 1:1 Y 420–1500). Latar Sunburst emas berputar + Speedlines. Karakter pose gagah.*
-> [Tulis hook 1 kalimat yang mematahkan mitos atau membongkar kejanggalan sejarah]
-> Contoh: "Bukan meriam atau ribuan pasukan yang bikin Belanda frustrasi di Buton!"
+### [BEAT 1: THE INVERSION HOOK] (00s – 06s / 12–16 kata)
+*Visual: CoverBadge Detik 0 aktif (frame 0–45, di dalam crop IG 1:1 Y 420–1500). Sunburst emas + speed lines. Karakter pose gagah.*
+- [1–2 kalimat yang mematahkan anggapan umum atau membongkar kejanggalan sejarah]
+- Contoh: "Bukan di Eropa atau Tiongkok, benteng terluas versi MURI justru berdiri di Indonesia!"
+
+### [BEAT 2: SCALE & GEOGRAPHY] (06s – 20s / 30–35 kata)
+*Visual: Peta perkamen, zoom ke lokasi, angka skala muncul sebagai label.*
+- [Tempat, waktu, dan skala dengan angka yang bisa dicek di sumber]
+- Contoh: "Inilah Benteng Keraton Buton di Baubau, Sulawesi Tenggara. Kelilingnya hampir tiga kilometer, dengan dua belas gerbang dan enam belas bastion meriam."
+
+### [BEAT 3: ENEMY / SIEGE / CONFLICT] (20s – 35s / 32–38 kata)
+*Visual: Langit perang gelap, karakter lawan panik, karakter pejuang bersiaga.*
+- [Ancaman nyata yang pernah dihadapi, dengan lawan yang benar untuk eranya]
+- Cek: lawan, kapal, dan bendera harus sesuai era. Jangan pakai VOC/Belanda sebelum 1596.
+
+### [BEAT 4: TACTICAL SECRET] (35s – 48s / 30–35 kata)
+*Visual: Perkamen + spotlight karakter, aksi taktis cepat, diagram teknik.*
+- [Kecerdikan strategi, teknologi, atau titik balik peristiwa]
+- Bedakan fakta dan tradisi lisan: "konon", "menurut tradisi setempat".
+
+### [BEAT 5: TRIUMPH & CTA] (48s – 65s / 25–35 kata)
+*Visual: Karakter menatap layar, bendera merah putih berkibar.*
+- [Kesimpulan bangga tanpa superlatif yang tidak bisa dibuktikan, lalu pertanyaan pemicu komentar]
+- Contoh: "Menurut kalian, bisakah teknik konstruksi modern menandingi kecerdikan leluhur Nusantara ini?"
 
 ---
 
-### [BEAT 2: THE RISING CONFLICT] (03.5s – 14.0s / 25–30 kata)
-*Visual: Kamera cut ke Dark Storm langit perang. Karakter musuh (Belanda) panik, karakter pejuang bersiaga.*
-> [Tulis eskalasi bahaya, skala ancaman, atau rintangan yang tampaknya mustahil dihadapi]
-> Contoh: "Benteng Keraton Buton dikelilingi jurang terjal dan dinding batu kapur setinggi delapan meter. Kapal perang musuh dihujani tembakan meriam sebelum sempat mendarat!"
+## 2. FORMAT FILE FINAL `content/<slug>/script.md`
+
+`generate_aligned_voiceover.py` dan `qa_video.py` membaca setiap baris **kecuali** baris yang diawali `#` atau `>`.
+
+- Narasi: paragraf biasa, satu paragraf per beat, tanpa heading atau bullet.
+- Sumber dan catatan: heading `##` lalu setiap baris diawali `> `, supaya tidak ikut dibacakan.
+- Jangan pakai `---` di file final: generator melewatinya, tapi `qa_video.py` tidak, sehingga cek verbatim gagal.
+
+```markdown
+[Paragraf Beat 1]
+
+[Paragraf Beat 2]
+
+[Paragraf Beat 3]
+
+[Paragraf Beat 4]
+
+[Paragraf Beat 5]
+
+## Sumber
+
+> 1. Penulis/Lembaga, "Judul", Penerbit, Tahun. URL
+> 2. ...
+
+## Catatan Verifikasi
+
+> - [Klaim] — [status: terverifikasi / lemah / anakronis] — [alasan + sumber]
+```
+
+Minimal 2 sumber per klaim angka atau superlatif ("terluas", "pertama", "tercanggih"). Klaim yang hanya ada di artikel populer ditandai lemah.
 
 ---
 
-### [BEAT 3: THE TACTICAL PIVOT] (14.0s – 26.0s / 30–35 kata)
-*Visual: Latar perkamen vintage dengan spotlight karakter. Aksi taktis cepat (menghunus keris / strategi unik).*
-> [Tulis kecerdikan strategi, senjata rahasia, atau titik balik peristiwa yang membalikkan keadaan]
-> Contoh: "Prajurit Kesultanan merekatkan batu menggunakan putih telur dan kapur karang. Hasilnya? Benteng seluas 23 hektar ini tak pernah berhasil dijebol satu peluru pun!"
-
----
-
-### [BEAT 4: RHETORICAL RETORT & CTA] (26.0s – 32.0s / 10–15 kata)
-*Visual: Karakter menatap layar, bendera merah putih berkibar di latar belakang.*
-> [Tulis kesimpulan bangga dan pertanyaan provokatif yang memicu penonton berdebat di kolom komentar]
-> Contoh: "Benteng terluas di dunia ini berdiri di Indonesia! Menurut kalian, bisakah taktik kuno ini ditiru zaman sekarang?"
-
----
-
-## 2. GENERATE AUDIO COMMAND
+## 3. GENERATE AUDIO COMMAND
 ```bash
-.venv/bin/python scripts/generate_aligned_voiceover.py path/to/this-script.md public/audio/<slug>_narasi.mp3 content/<slug>/subtitles_aligned.json
+.venv/bin/python scripts/generate_aligned_voiceover.py content/<slug>/script.md public/audio/<slug>_narasi.mp3 content/<slug>/subtitles_aligned.json
 ```

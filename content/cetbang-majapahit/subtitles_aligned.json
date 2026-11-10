@@ -14,409 +14,385 @@
   {
     "text": "MESIU PERTAMA KALI",
     "startFrame": 50,
-    "endFrame": 75,
+    "endFrame": 76,
     "emphasis": false
   },
   {
     "text": "DIBAWA OLEH PENJAJAH",
-    "startFrame": 75,
-    "endFrame": 107,
+    "startFrame": 76,
+    "endFrame": 108,
     "emphasis": false
   },
   {
     "text": "BANGSA EROPA KE",
-    "startFrame": 107,
-    "endFrame": 128,
+    "startFrame": 108,
+    "endFrame": 129,
     "emphasis": false
   },
   {
     "text": "NUSANTARA",
-    "startFrame": 128,
-    "endFrame": 154,
+    "startFrame": 129,
+    "endFrame": 155,
     "emphasis": false
   },
   {
-    "text": "FAKTANYA RATUSAN",
+    "text": "FAKTANYA",
     "startFrame": 176,
-    "endFrame": 220,
+    "endFrame": 207,
     "emphasis": false
   },
   {
-    "text": "TAHUN SEBELUM KAPAL",
-    "startFrame": 220,
-    "endFrame": 244,
+    "text": "JAUH SEBELUM ARMADA",
+    "startFrame": 207,
+    "endFrame": 234,
     "emphasis": false
   },
   {
-    "text": "BELANDA PERTAMA",
-    "startFrame": 244,
-    "endFrame": 262,
+    "text": "PORTUGIS TIBA DI",
+    "startFrame": 234,
+    "endFrame": 257,
     "emphasis": false
   },
   {
-    "text": "MENDARAT DI BANTEN",
-    "startFrame": 262,
-    "endFrame": 300,
+    "text": "MALAKA TAHUN 1511",
+    "startFrame": 257,
+    "endFrame": 317,
     "emphasis": false
   },
   {
     "text": "KERAJAAN",
-    "startFrame": 300,
-    "endFrame": 312,
+    "startFrame": 317,
+    "endFrame": 329,
     "emphasis": false
   },
   {
     "text": "MAJAPAHIT SUDAH",
-    "startFrame": 312,
-    "endFrame": 334,
+    "startFrame": 329,
+    "endFrame": 351,
     "emphasis": false
   },
   {
-    "text": "MENGUASAI",
-    "startFrame": 334,
-    "endFrame": 348,
+    "text": "MEMASANG MERIAM DI",
+    "startFrame": 351,
+    "endFrame": 372,
     "emphasis": false
   },
   {
-    "text": "TEKNOLOGI SENJATA",
-    "startFrame": 348,
-    "endFrame": 375,
+    "text": "KAPAL-KAPAL",
+    "startFrame": 372,
+    "endFrame": 387,
     "emphasis": false
   },
   {
-    "text": "API TERCANGGIH DI",
-    "startFrame": 375,
-    "endFrame": 397,
+    "text": "PERANGNYA",
+    "startFrame": 387,
+    "endFrame": 408,
     "emphasis": false
   },
   {
-    "text": "DUNIA",
-    "startFrame": 397,
-    "endFrame": 416,
+    "text": "SENJATA INI BERNAMA",
+    "startFrame": 429,
+    "endFrame": 458,
     "emphasis": false
   },
   {
-    "text": "SENJATA RAHASIA INI",
-    "startFrame": 438,
-    "endFrame": 468,
+    "text": "CETBANG MERIAM",
+    "startFrame": 458,
+    "endFrame": 493,
     "emphasis": false
   },
   {
-    "text": "BERNAMA CETBANG",
-    "startFrame": 468,
-    "endFrame": 503,
+    "text": "PERUNGGU BUATAN",
+    "startFrame": 493,
+    "endFrame": 512,
     "emphasis": false
   },
   {
-    "text": "SEBUAH MERIAM PUTAR",
-    "startFrame": 503,
-    "endFrame": 527,
-    "emphasis": false
-  },
-  {
-    "text": "PERUNGGU YANG",
-    "startFrame": 527,
-    "endFrame": 542,
-    "emphasis": false
-  },
-  {
-    "text": "DITEMPA OLEH PANDAI",
-    "startFrame": 542,
-    "endFrame": 566,
-    "emphasis": false
-  },
-  {
-    "text": "BESI NUSANTARA DARI",
-    "startFrame": 566,
-    "endFrame": 592,
-    "emphasis": false
-  },
-  {
-    "text": "TEKNOLOGI INVASI",
-    "startFrame": 592,
-    "endFrame": 621,
-    "emphasis": false
-  },
-  {
-    "text": "TENTARA MONGOL",
-    "startFrame": 621,
-    "endFrame": 638,
-    "emphasis": false
-  },
-  {
-    "text": "KUBILAI KHAN PADA",
-    "startFrame": 638,
-    "endFrame": 662,
-    "emphasis": false
-  },
-  {
-    "text": "TAHUN 1293",
-    "startFrame": 662,
-    "endFrame": 723,
-    "emphasis": false
-  },
-  {
-    "text": "BERBEDA DENGAN",
-    "startFrame": 744,
-    "endFrame": 764,
-    "emphasis": false
-  },
-  {
-    "text": "MERIAM KUNO YANG",
-    "startFrame": 764,
-    "endFrame": 782,
-    "emphasis": false
-  },
-  {
-    "text": "KAKU",
-    "startFrame": 782,
-    "endFrame": 806,
-    "emphasis": false
-  },
-  {
-    "text": "CETBANG MAJAPAHIT",
-    "startFrame": 806,
-    "endFrame": 831,
-    "emphasis": false
-  },
-  {
-    "text": "MEMILIKI SISTEM",
-    "startFrame": 831,
-    "endFrame": 852,
-    "emphasis": false
-  },
-  {
-    "text": "PENGISIAN PELURU",
-    "startFrame": 852,
-    "endFrame": 872,
-    "emphasis": false
-  },
-  {
-    "text": "DARI BELAKANG ATAU",
-    "startFrame": 872,
-    "endFrame": 894,
-    "emphasis": false
-  },
-  {
-    "text": "BREECH-LOADING",
-    "startFrame": 894,
-    "endFrame": 926,
-    "emphasis": false
-  },
-  {
-    "text": "SERTA GARPU PUTAR",
-    "startFrame": 926,
-    "endFrame": 951,
-    "emphasis": false
-  },
-  {
-    "text": "FLEKSIBEL YANG BISA",
-    "startFrame": 951,
-    "endFrame": 978,
-    "emphasis": false
-  },
-  {
-    "text": "DIARAHKAN KE SEGALA",
-    "startFrame": 978,
-    "endFrame": 1003,
-    "emphasis": false
-  },
-  {
-    "text": "SUDUT SECARA KILAT",
-    "startFrame": 1003,
-    "endFrame": 1037,
-    "emphasis": false
-  },
-  {
-    "text": "SETIAP KAPAL PERANG",
-    "startFrame": 1058,
-    "endFrame": 1083,
-    "emphasis": false
-  },
-  {
-    "text": "RAKSASA JUNG JAWA",
-    "startFrame": 1083,
-    "endFrame": 1112,
-    "emphasis": false
-  },
-  {
-    "text": "DIPERSENJATAI",
-    "startFrame": 1112,
-    "endFrame": 1130,
-    "emphasis": false
-  },
-  {
-    "text": "PULUHAN MERIAM",
-    "startFrame": 1130,
-    "endFrame": 1149,
-    "emphasis": false
-  },
-  {
-    "text": "CETBANG DI LAMBUNG",
-    "startFrame": 1149,
-    "endFrame": 1176,
-    "emphasis": false
-  },
-  {
-    "text": "DAN HALUAN KAPAL",
-    "startFrame": 1176,
-    "endFrame": 1212,
-    "emphasis": false
-  },
-  {
-    "text": "SEKALI PERINTAH",
-    "startFrame": 1233,
-    "endFrame": 1252,
-    "emphasis": false
-  },
-  {
-    "text": "MAHAPATIH GAJAH MADA",
-    "startFrame": 1252,
-    "endFrame": 1282,
-    "emphasis": false
-  },
-  {
-    "text": "BERKUMANDANG",
-    "startFrame": 1282,
-    "endFrame": 1313,
-    "emphasis": false
-  },
-  {
-    "text": "SEMBURAN PELURU",
-    "startFrame": 1313,
-    "endFrame": 1332,
-    "emphasis": false
-  },
-  {
-    "text": "TIMAH DAN API",
-    "startFrame": 1332,
-    "endFrame": 1354,
-    "emphasis": false
-  },
-  {
-    "text": "MESIU LANGSUNG",
-    "startFrame": 1354,
-    "endFrame": 1372,
-    "emphasis": false
-  },
-  {
-    "text": "MENENGGELAMKAN",
-    "startFrame": 1372,
-    "endFrame": 1389,
-    "emphasis": false
-  },
-  {
-    "text": "KAPAL MUSUH DARI",
-    "startFrame": 1389,
-    "endFrame": 1412,
-    "emphasis": false
-  },
-  {
-    "text": "JARAK JAUH",
-    "startFrame": 1412,
-    "endFrame": 1439,
-    "emphasis": false
-  },
-  {
-    "text": "KECANGGIHAN",
-    "startFrame": 1460,
-    "endFrame": 1476,
-    "emphasis": false
-  },
-  {
-    "text": "TAKTIK MERIAM",
-    "startFrame": 1476,
-    "endFrame": 1494,
-    "emphasis": false
-  },
-  {
-    "text": "CETBANG INILAH KUNCI",
-    "startFrame": 1494,
-    "endFrame": 1520,
-    "emphasis": false
-  },
-  {
-    "text": "UTAMA YANG",
-    "startFrame": 1520,
-    "endFrame": 1537,
-    "emphasis": false
-  },
-  {
-    "text": "MENGANTARKAN",
-    "startFrame": 1537,
-    "endFrame": 1551,
-    "emphasis": false
-  },
-  {
-    "text": "ARMADA LAUT",
-    "startFrame": 1551,
-    "endFrame": 1570,
-    "emphasis": false
-  },
-  {
-    "text": "MAJAPAHIT SUKSES",
-    "startFrame": 1570,
-    "endFrame": 1598,
-    "emphasis": false
-  },
-  {
-    "text": "MENYATUKAN",
-    "startFrame": 1598,
-    "endFrame": 1612,
-    "emphasis": false
-  },
-  {
-    "text": "SELURUH KEPULAUAN",
-    "startFrame": 1612,
-    "endFrame": 1635,
+    "text": "PANDAI LOGAM",
+    "startFrame": 512,
+    "endFrame": 533,
     "emphasis": false
   },
   {
     "text": "NUSANTARA",
-    "startFrame": 1635,
-    "endFrame": 1659,
+    "startFrame": 533,
+    "endFrame": 559,
+    "emphasis": false
+  },
+  {
+    "text": "MESIU SENDIRI SUDAH",
+    "startFrame": 580,
+    "endFrame": 604,
+    "emphasis": false
+  },
+  {
+    "text": "DIKENAL DI JAWA",
+    "startFrame": 604,
+    "endFrame": 626,
+    "emphasis": false
+  },
+  {
+    "text": "SEJAK ABAD KEEMPAT",
+    "startFrame": 626,
+    "endFrame": 651,
+    "emphasis": false
+  },
+  {
+    "text": "BELAS",
+    "startFrame": 651,
+    "endFrame": 673,
+    "emphasis": false
+  },
+  {
+    "text": "TAK LAMA SETELAH",
+    "startFrame": 673,
+    "endFrame": 692,
+    "emphasis": false
+  },
+  {
+    "text": "PASUKAN MONGOL",
+    "startFrame": 692,
+    "endFrame": 711,
+    "emphasis": false
+  },
+  {
+    "text": "KUBILAI KHAN",
+    "startFrame": 711,
+    "endFrame": 728,
+    "emphasis": false
+  },
+  {
+    "text": "MENYERBU JAWA PADA",
+    "startFrame": 728,
+    "endFrame": 754,
+    "emphasis": false
+  },
+  {
+    "text": "TAHUN 1293",
+    "startFrame": 754,
+    "endFrame": 816,
+    "emphasis": false
+  },
+  {
+    "text": "VERSI YANG LEBIH",
+    "startFrame": 837,
+    "endFrame": 855,
+    "emphasis": false
+  },
+  {
+    "text": "MAJU MEMAKAI SISTEM",
+    "startFrame": 855,
+    "endFrame": 886,
+    "emphasis": false
+  },
+  {
+    "text": "PENGISIAN PELURU",
+    "startFrame": 886,
+    "endFrame": 906,
+    "emphasis": false
+  },
+  {
+    "text": "DARI BELAKANG ATAU",
+    "startFrame": 906,
+    "endFrame": 929,
+    "emphasis": false
+  },
+  {
+    "text": "BREECH-LOADING",
+    "startFrame": 929,
+    "endFrame": 961,
+    "emphasis": false
+  },
+  {
+    "text": "SERTA GARPU PUTAR",
+    "startFrame": 961,
+    "endFrame": 987,
+    "emphasis": false
+  },
+  {
+    "text": "YANG BISA DIARAHKAN",
+    "startFrame": 987,
+    "endFrame": 1013,
+    "emphasis": false
+  },
+  {
+    "text": "KE BERBAGAI SUDUT",
+    "startFrame": 1013,
+    "endFrame": 1036,
+    "emphasis": false
+  },
+  {
+    "text": "DENGAN SANGAT CEPAT",
+    "startFrame": 1036,
+    "endFrame": 1068,
+    "emphasis": false
+  },
+  {
+    "text": "KAPAL PERANG JUNG",
+    "startFrame": 1089,
+    "endFrame": 1112,
+    "emphasis": false
+  },
+  {
+    "text": "JAWA",
+    "startFrame": 1112,
+    "endFrame": 1121,
+    "emphasis": false
+  },
+  {
+    "text": "DIPERSENJATAI",
+    "startFrame": 1121,
+    "endFrame": 1140,
+    "emphasis": false
+  },
+  {
+    "text": "MERIAM CETBANG DI",
+    "startFrame": 1140,
+    "endFrame": 1164,
+    "emphasis": false
+  },
+  {
+    "text": "LAMBUNG DAN HALUAN",
+    "startFrame": 1164,
+    "endFrame": 1191,
+    "emphasis": false
+  },
+  {
+    "text": "KAPAL",
+    "startFrame": 1191,
+    "endFrame": 1211,
+    "emphasis": false
+  },
+  {
+    "text": "SAAT ABA-ABA TEMBAK",
+    "startFrame": 1233,
+    "endFrame": 1262,
+    "emphasis": false
+  },
+  {
+    "text": "BERKUMANDANG",
+    "startFrame": 1262,
+    "endFrame": 1292,
+    "emphasis": false
+  },
+  {
+    "text": "SEMBURAN PELURU DAN",
+    "startFrame": 1292,
+    "endFrame": 1317,
+    "emphasis": false
+  },
+  {
+    "text": "API MESIU MENGHANTAM",
+    "startFrame": 1317,
+    "endFrame": 1346,
+    "emphasis": false
+  },
+  {
+    "text": "KAPAL MUSUH DARI",
+    "startFrame": 1346,
+    "endFrame": 1367,
+    "emphasis": false
+  },
+  {
+    "text": "KEJAUHAN",
+    "startFrame": 1367,
+    "endFrame": 1392,
+    "emphasis": false
+  },
+  {
+    "text": "TEKNOLOGI MERIAM",
+    "startFrame": 1413,
+    "endFrame": 1436,
+    "emphasis": false
+  },
+  {
+    "text": "INILAH SALAH SATU",
+    "startFrame": 1436,
+    "endFrame": 1460,
+    "emphasis": false
+  },
+  {
+    "text": "KEKUATAN UTAMA",
+    "startFrame": 1460,
+    "endFrame": 1480,
+    "emphasis": false
+  },
+  {
+    "text": "ARMADA LAUT",
+    "startFrame": 1480,
+    "endFrame": 1497,
+    "emphasis": false
+  },
+  {
+    "text": "MAJAPAHIT DALAM",
+    "startFrame": 1497,
+    "endFrame": 1522,
+    "emphasis": false
+  },
+  {
+    "text": "MENGUASAI JALUR",
+    "startFrame": 1522,
+    "endFrame": 1546,
+    "emphasis": false
+  },
+  {
+    "text": "DAGANG REMPAH DI",
+    "startFrame": 1546,
+    "endFrame": 1567,
+    "emphasis": false
+  },
+  {
+    "text": "SELURUH PERAIRAN",
+    "startFrame": 1567,
+    "endFrame": 1587,
+    "emphasis": false
+  },
+  {
+    "text": "NUSANTARA YANG LUAS",
+    "startFrame": 1587,
+    "endFrame": 1624,
     "emphasis": false
   },
   {
     "text": "MENURUT KALIAN",
-    "startFrame": 1681,
-    "endFrame": 1715,
+    "startFrame": 1646,
+    "endFrame": 1680,
     "emphasis": false
   },
   {
     "text": "BANGGA NGGAK SIH",
-    "startFrame": 1715,
-    "endFrame": 1732,
+    "startFrame": 1680,
+    "endFrame": 1697,
     "emphasis": false
   },
   {
     "text": "TAHU BAHWA LELUHUR",
-    "startFrame": 1732,
-    "endFrame": 1760,
+    "startFrame": 1697,
+    "endFrame": 1725,
     "emphasis": false
   },
   {
-    "text": "KITA TERNYATA ADALAH",
-    "startFrame": 1760,
-    "endFrame": 1788,
+    "text": "KITA TERNYATA SUDAH",
+    "startFrame": 1725,
+    "endFrame": 1750,
     "emphasis": false
   },
   {
-    "text": "PELOPOR",
-    "startFrame": 1788,
-    "endFrame": 1797,
+    "text": "MENGUASAI",
+    "startFrame": 1750,
+    "endFrame": 1763,
     "emphasis": false
   },
   {
-    "text": "PERSENJATAAN API",
-    "startFrame": 1797,
-    "endFrame": 1820,
+    "text": "TEKNOLOGI MERIAM",
+    "startFrame": 1763,
+    "endFrame": 1786,
     "emphasis": false
   },
   {
-    "text": "DUNIA",
-    "startFrame": 1820,
-    "endFrame": 1840,
+    "text": "BUATAN SENDIRI",
+    "startFrame": 1786,
+    "endFrame": 1816,
     "emphasis": false
   }
 ]
