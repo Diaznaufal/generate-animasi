@@ -15,6 +15,7 @@ import {
   ParchmentBg,
   SpeedLines,
   Stickman,
+  CameraShots,
 } from "./components/timeforge";
 
 export const VIDEO_FPS = 30;
@@ -218,198 +219,214 @@ export const CetbangMajapahitExplainer: React.FC = () => {
         {/* SHOT 1: THE INVERSION HOOK (0 - 170 frames / 5.7s)                 */}
         {/* ================================================================== */}
         <Series.Sequence durationInFrames={170}>
-          {(() => {
-            const zoom = interpolate(frame, [0, 170], [1.0, 1.08], { extrapolateRight: "clamp" });
-            return (
-              <AbsoluteFill style={{ transform: `scale(${zoom})`, transformOrigin: "50% 50%" }}>
-                <ParchmentBg mood="sunburst" />
-                <SpeedLines intensity={1.1} />
-                <FlagRibbon />
-                <div style={{ position: "absolute", top: "52%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 30 }}>
-                  <Stickman
-                    pose="point_forward"
-                    face="determined"
-                    accessory="headband"
-                    prop="flag"
-                    scale={1.05}
-                  />
-                </div>
-              </AbsoluteFill>
-            );
-          })()}
+          <CameraShots durationInFrames={170} offset={0}>
+            {(() => {
+              const zoom = interpolate(frame, [0, 170], [1.0, 1.08], { extrapolateRight: "clamp" });
+              return (
+                <AbsoluteFill style={{ transform: `scale(${zoom})`, transformOrigin: "50% 50%" }}>
+                  <ParchmentBg mood="sunburst" />
+                  <SpeedLines intensity={1.1} />
+                  <FlagRibbon />
+                  <div style={{ position: "absolute", top: "52%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 30 }}>
+                    <Stickman
+                      pose="point_forward"
+                      face="determined"
+                      accessory="headband"
+                      prop="flag"
+                      scale={1.05}
+                    />
+                  </div>
+                </AbsoluteFill>
+              );
+            })()}
+          </CameraShots>
         </Series.Sequence>
 
         {/* ================================================================== */}
         {/* SHOT 2: KAPAL BELANDA VS MAJAPAHIT (170 - 430 / 260 frames / 8.7s) */}
         {/* ================================================================== */}
         <Series.Sequence durationInFrames={260}>
-          <AbsoluteFill>
-            <ParchmentBg mood="parchment" />
-            <SpeedLines intensity={0.5} />
-            <JungJawaDeck2D />
-            {/* Komandan Kolonial Belanda Kaget di Sisi Kiri */}
-            <div style={{ position: "absolute", top: "45%", left: "30%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
-              <Stickman
-                pose="shocked"
-                face="shivering_cry"
-                accessory="colonial_hat"
-                scale={0.92}
-              />
-            </div>
-            {/* Pejuang Majapahit Menatap Tajam di Sisi Kanan */}
-            <div style={{ position: "absolute", top: "45%", left: "70%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
-              <Stickman
-                pose="hold_weapon"
-                face="determined"
-                accessory="headband"
-                prop="keris"
-                scale={1.02}
-                flipX={true}
-              />
-            </div>
-          </AbsoluteFill>
+          <CameraShots durationInFrames={260} offset={1}>
+            <AbsoluteFill>
+              <ParchmentBg mood="parchment" />
+              <SpeedLines intensity={0.5} />
+              <JungJawaDeck2D />
+              {/* Komandan Kolonial Belanda Kaget di Sisi Kiri */}
+              <div style={{ position: "absolute", top: "45%", left: "30%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
+                <Stickman
+                  pose="shocked"
+                  face="shivering_cry"
+                  accessory="colonial_hat"
+                  scale={0.92}
+                />
+              </div>
+              {/* Pejuang Majapahit Menatap Tajam di Sisi Kanan */}
+              <div style={{ position: "absolute", top: "45%", left: "70%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
+                <Stickman
+                  pose="hold_weapon"
+                  face="determined"
+                  accessory="headband"
+                  prop="keris"
+                  scale={1.02}
+                  flipX={true}
+                />
+              </div>
+            </AbsoluteFill>
+          </CameraShots>
         </Series.Sequence>
 
         {/* ================================================================== */}
         {/* SHOT 3: SENJATA RAHASIA CETBANG & MONGOL 1293 (430 - 730 / 300f / 10s)*/}
         {/* ================================================================== */}
         <Series.Sequence durationInFrames={300}>
-          <AbsoluteFill>
-            <ParchmentBg mood="parchment" />
-            <SpeedLines intensity={0.7} />
-            {/* Meriam Cetbang Dipamerkan di Tengah Layar */}
-            <CetbangCannon2D isFiring={false} />
-            <div style={{ position: "absolute", top: "42%", left: "75%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
-              <Stickman
-                pose="proud"
-                face="confident"
-                accessory="headband"
-                prop="none"
-                scale={0.96}
-              />
-            </div>
-          </AbsoluteFill>
+          <CameraShots durationInFrames={300} offset={2}>
+            <AbsoluteFill>
+              <ParchmentBg mood="parchment" />
+              <SpeedLines intensity={0.7} />
+              {/* Meriam Cetbang Dipamerkan di Tengah Layar */}
+              <CetbangCannon2D isFiring={false} />
+              <div style={{ position: "absolute", top: "42%", left: "75%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
+                <Stickman
+                  pose="proud"
+                  face="confident"
+                  accessory="headband"
+                  prop="none"
+                  scale={0.96}
+                />
+              </div>
+            </AbsoluteFill>
+          </CameraShots>
         </Series.Sequence>
 
         {/* ================================================================== */}
         {/* SHOT 4: TEKNOLOGI BREECH-LOADING & GARPU PUTAR (730 - 1040 / 310f / 10.3s)*/}
         {/* ================================================================== */}
         <Series.Sequence durationInFrames={310}>
-          <AbsoluteFill>
-            <ParchmentBg mood="sunburst" />
-            <SpeedLines intensity={1.2} />
-            {/* Meriam Cetbang Bersiap Menembak */}
-            <CetbangCannon2D isFiring={true} />
-            <div style={{ position: "absolute", top: "45%", left: "28%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
-              <Stickman
-                pose="hold_weapon"
-                face="determined"
-                accessory="headband"
-                prop="sword"
-                scale={0.98}
-              />
-            </div>
-          </AbsoluteFill>
+          <CameraShots durationInFrames={310} offset={3}>
+            <AbsoluteFill>
+              <ParchmentBg mood="sunburst" />
+              <SpeedLines intensity={1.2} />
+              {/* Meriam Cetbang Bersiap Menembak */}
+              <CetbangCannon2D isFiring={true} />
+              <div style={{ position: "absolute", top: "45%", left: "28%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
+                <Stickman
+                  pose="hold_weapon"
+                  face="determined"
+                  accessory="headband"
+                  prop="sword"
+                  scale={0.98}
+                />
+              </div>
+            </AbsoluteFill>
+          </CameraShots>
         </Series.Sequence>
 
         {/* ================================================================== */}
         {/* SHOT 5: KAPAL RAKSASA JUNG JAWA (1040 - 1220 / 180 frames / 6.0s) */}
         {/* ================================================================== */}
         <Series.Sequence durationInFrames={180}>
-          <AbsoluteFill>
-            <ParchmentBg mood="dark_storm" />
-            <SpeedLines intensity={0.8} />
-            <JungJawaDeck2D />
-            {/* Prajurit Berjaga di Haluan Kapal */}
-            <div style={{ position: "absolute", top: "44%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
-              <Stickman
-                pose="proud"
-                face="confident"
-                accessory="turban"
-                prop="flag"
-                scale={1.05}
-              />
-            </div>
-          </AbsoluteFill>
+          <CameraShots durationInFrames={180} offset={4}>
+            <AbsoluteFill>
+              <ParchmentBg mood="dark_storm" />
+              <SpeedLines intensity={0.8} />
+              <JungJawaDeck2D />
+              {/* Prajurit Berjaga di Haluan Kapal */}
+              <div style={{ position: "absolute", top: "44%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
+                <Stickman
+                  pose="proud"
+                  face="confident"
+                  accessory="turban"
+                  prop="flag"
+                  scale={1.05}
+                />
+              </div>
+            </AbsoluteFill>
+          </CameraShots>
         </Series.Sequence>
 
         {/* ================================================================== */}
-        {/* SHOT 6: GAJAH MADA & TEMBAKAN MERIAM DAHSYAT (1220 - 1450 / 230f / 7.7s)*/}
+        {/* SHOT 6: GAJAH MADA & TEMBAKAN MERIAM DAHSYAT (1220 - 1460 / 240f / 8.0s)*/}
         {/* ================================================================== */}
-        <Series.Sequence durationInFrames={230}>
-          <AbsoluteFill>
-            <ParchmentBg mood="dark_storm" />
-            <SpeedLines intensity={1.5} />
-            <CetbangCannon2D isFiring={true} />
-            <div style={{ position: "absolute", top: "40%", left: "76%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
-              <Stickman
-                pose="point_forward"
-                face="determined"
-                accessory="headband"
-                prop="keris"
-                scale={1.1}
-                flipX={true}
-              />
-            </div>
-          </AbsoluteFill>
+        <Series.Sequence durationInFrames={240}>
+          <CameraShots durationInFrames={240} offset={5}>
+            <AbsoluteFill>
+              <ParchmentBg mood="dark_storm" />
+              <SpeedLines intensity={1.5} />
+              <CetbangCannon2D isFiring={true} />
+              <div style={{ position: "absolute", top: "40%", left: "76%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
+                <Stickman
+                  pose="point_forward"
+                  face="determined"
+                  accessory="headband"
+                  prop="keris"
+                  scale={1.1}
+                  flipX={true}
+                />
+              </div>
+            </AbsoluteFill>
+          </CameraShots>
         </Series.Sequence>
 
         {/* ================================================================== */}
-        {/* SHOT 7: ARMADA LAUT MENYATUKAN NUSANTARA (1450 - 1670 / 220f / 7.3s)*/}
+        {/* SHOT 7: ARMADA LAUT MENYATUKAN NUSANTARA (1460 - 1670 / 210f / 7.0s)*/}
         {/* ================================================================== */}
-        <Series.Sequence durationInFrames={220}>
-          <AbsoluteFill>
-            <ParchmentBg mood="sunburst" />
-            <SpeedLines intensity={1.2} />
-            <FlagRibbon />
-            <JungJawaDeck2D />
-            <div style={{ position: "absolute", top: "46%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
-              <Stickman
-                pose="lunge_action"
-                face="determined"
-                accessory="headband"
-                prop="keris"
-                scale={1.12}
-              />
-            </div>
-          </AbsoluteFill>
+        <Series.Sequence durationInFrames={210}>
+          <CameraShots durationInFrames={210} offset={6}>
+            <AbsoluteFill>
+              <ParchmentBg mood="sunburst" />
+              <SpeedLines intensity={1.2} />
+              <FlagRibbon />
+              <JungJawaDeck2D />
+              <div style={{ position: "absolute", top: "46%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
+                <Stickman
+                  pose="lunge_action"
+                  face="determined"
+                  accessory="headband"
+                  prop="keris"
+                  scale={1.12}
+                />
+              </div>
+            </AbsoluteFill>
+          </CameraShots>
         </Series.Sequence>
 
         {/* ================================================================== */}
         {/* SHOT 8: CLOSING CTA - PELOPOR SENJATA API (1670 - 1862 / 192f / 6.4s)*/}
         {/* ================================================================== */}
         <Series.Sequence durationInFrames={192}>
-          <AbsoluteFill>
-            <ParchmentBg mood="sunburst" />
-            <SpeedLines intensity={0.9} />
-            <FlagRibbon waveSpeed={1.4} yOffset={40} />
-            <JungJawaDeck2D />
-            {/* Dua Sosok Pejuang Nusantara Mengawal Kejayaan */}
-            <div style={{ position: "absolute", top: "48%", left: "34%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
-              <Stickman
-                pose="hold_weapon"
-                face="determined"
-                accessory="headband"
-                prop="keris"
-                scale={0.98}
-              />
-            </div>
-            <div style={{ position: "absolute", top: "48%", left: "68%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
-              <Stickman
-                pose="point_forward"
-                face="confident"
-                accessory="turban"
-                prop="flag"
-                scale={1.02}
-                flipX={true}
-              />
-            </div>
-          </AbsoluteFill>
+          <CameraShots durationInFrames={192} offset={7}>
+            <AbsoluteFill>
+              <ParchmentBg mood="sunburst" />
+              <SpeedLines intensity={0.9} />
+              <FlagRibbon waveSpeed={1.4} yOffset={40} />
+              <JungJawaDeck2D />
+              {/* Dua Sosok Pejuang Nusantara Mengawal Kejayaan */}
+              <div style={{ position: "absolute", top: "48%", left: "34%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
+                <Stickman
+                  pose="hold_weapon"
+                  face="determined"
+                  accessory="headband"
+                  prop="keris"
+                  scale={0.98}
+                />
+              </div>
+              <div style={{ position: "absolute", top: "48%", left: "68%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
+                <Stickman
+                  pose="point_forward"
+                  face="confident"
+                  accessory="turban"
+                  prop="flag"
+                  scale={1.02}
+                  flipX={true}
+                />
+              </div>
+            </AbsoluteFill>
+          </CameraShots>
         </Series.Sequence>
       </Series>
 
       {/* 4. KINETIC SUBTITLE DI DADA (Y: 58%) */}
-      <KineticSubtitle words={SUBTITLE_WORDS} top="58%" fontSize={86} />
+      <KineticSubtitle words={SUBTITLE_WORDS} top="58%" fontSize={54} />
     </AbsoluteFill>
   );
 };

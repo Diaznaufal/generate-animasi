@@ -154,9 +154,6 @@ async function generateEdgeTTS(text, voice) {
       `📁 Lokasi: ${targetAudio} (${(stat.size / 1024).toFixed(1)} KB)`,
     );
 
-    // Backup ke public/narasi.mp3
-    fs.copyFileSync(targetAudio, path.resolve("public/narasi.mp3"));
-    console.log(`📁 Salinan: public/narasi.mp3`);
   } catch (err) {
     if (fs.existsSync(tempTextFile)) fs.unlinkSync(tempTextFile);
     console.error(`❌ Gagal menjalankan edge-tts:`, err.message);
@@ -233,8 +230,6 @@ async function generateElevenLabs(text, voiceId) {
       `📁 Lokasi: ${targetAudio} (${(buffer.length / 1024).toFixed(1)} KB)`,
     );
 
-    fs.copyFileSync(targetAudio, path.resolve("public/narasi.mp3"));
-    console.log(`📁 Salinan: public/narasi.mp3`);
   } catch (err) {
     console.error(`❌ Kesalahan jaringan ElevenLabs:`, err.message);
     process.exit(1);

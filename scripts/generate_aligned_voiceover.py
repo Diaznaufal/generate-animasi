@@ -55,12 +55,6 @@ async def generate_aligned(script_path, output_audio_path, output_json_path, voi
             f.write(chunk)
     print(f"✅ Audio saved to: {output_audio_path}")
 
-    # Copy to public/narasi.mp3 if needed
-    if "public/audio" in output_audio_path:
-        with open("public/narasi.mp3", "wb") as f:
-            for chunk in audio_chunks:
-                f.write(chunk)
-
     print(f"📝 Total words detected: {len(raw_words)}")
 
     # Group words into punchy TimeForge 1-3 word chunks
