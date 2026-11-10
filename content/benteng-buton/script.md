@@ -1,14 +1,14 @@
-Bukan di Eropa atau Tiongkok, benteng terluas di seluruh muka bumi justru berdiri tegak di Indonesia!
+Bukan di Eropa atau Tiongkok, benteng terluas versi rekor MURI justru berdiri tegak di Indonesia!
 
-Inilah Benteng Keraton Buton di Sulawesi Tenggara. Membentang seluas dua puluh tiga hektar dengan keliling hampir tiga kilometer, benteng megah ini bertengger di puncak bukit karang setinggi seratus meter.
+Inilah Benteng Keraton Buton di Kota Baubau, Sulawesi Tenggara. Membentang sekitar dua puluh tiga hektar dengan keliling hampir tiga kilometer, benteng megah ini bertengger di atas bukit karang.
 
-Dari ketinggian ini, prajurit Kesultanan Buton membangun enam belas bastion meriam yang menguasai pandangan tiga ratus enam puluh derajat ke seluruh perairan Selat Buton!
+Dari ketinggian ini, prajurit Kesultanan Buton membangun enam belas bastion meriam dan dua belas gerbang yang mengawasi perairan Selat Buton!
 
-Saat armada kapal perang VOC Belanda mengepung dan menghujani dinding dengan ratusan tembakan meriam membabi buta, benteng setebal dua meter ini sama sekali tak bergeming!
+Buton terjepit di antara dua kekuatan besar, Gowa dan Ternate. Tahun 1613, Sultan Buton memilih bersekutu dengan VOC, tapi tetap menjaga bentengnya sendiri ketika hubungan itu memanas pada abad kedelapan belas!
 
-Rahasianya? Masyarakat Buton tidak memakai semen modern, melainkan merekatkan jutaan ton batu gunung menggunakan adonan kapur karang dan ribuan butir putih telur!
+Rahasianya? Masyarakat Buton tidak memakai semen modern, melainkan menyusun batu gunung dengan adonan kapur karang. Konon, putih telur ikut dicampurkan sebagai perekat!
 
-Struktur purba ini terbukti lentur menyerap getaran kinetik peluru meriam, hingga resmi dinobatkan Guinness World Records sebagai benteng terluas di dunia yang tak pernah berhasil ditaklukkan!
+Lebih dari empat abad kemudian, dinding batu ini masih berdiri kokoh, hingga tahun dua ribu enam dicatat Museum Rekor Indonesia sebagai benteng terluas di dunia!
 
 Menurut kalian, bisakah teknologi konstruksi modern menandingi kecerdikan taktik leluhur Nusantara ini?
 
@@ -29,19 +29,5 @@ Menurut kalian, bisakah teknologi konstruksi modern menandingi kecerdikan taktik
 > - "Tak pernah berhasil ditaklukkan" — LEMAH. Bergantung pada klaim pengepungan di atas.
 > - "Ribuan butir putih telur" — TRADISI LISAN. Sebut "konon" atau "menurut tradisi setempat".
 > - "Setebal dua meter", "bukit setinggi seratus meter", "pandangan 360 derajat" — BELUM TERVERIFIKASI di sumber di atas.
-
-## Usulan Revisi Naskah (belum dirender)
-
-> Bukan di Eropa atau Tiongkok, benteng terluas versi rekor MURI justru berdiri tegak di Indonesia!
 >
-> Inilah Benteng Keraton Buton di Baubau, Sulawesi Tenggara. Membentang sekitar dua puluh tiga hektar dengan keliling hampir tiga kilometer, benteng megah ini bertengger di atas bukit karang.
->
-> Dari ketinggian ini, prajurit Kesultanan Buton membangun enam belas bastion meriam dan dua belas gerbang yang mengawasi perairan Selat Buton!
->
-> Buton terjepit di antara dua kekuatan besar, Gowa dan Ternate. Sultan Buton memilih bersekutu dengan VOC, tapi tetap menjaga benteng sendiri saat hubungan itu memanas pada abad kedelapan belas!
->
-> Rahasianya? Masyarakat Buton tidak memakai semen modern, melainkan menyusun batu gunung dengan adonan kapur karang. Konon, putih telur ikut dicampurkan sebagai perekat!
->
-> Lebih dari empat abad kemudian, dindingnya masih berdiri, hingga tahun dua ribu enam dicatat MURI sebagai benteng terluas di dunia!
->
-> Menurut kalian, bisakah teknologi konstruksi modern menandingi kecerdikan leluhur Nusantara ini?
+> Status: narasi di atas sudah direvisi sesuai catatan ini (klaim lemah/anakronis dihapus atau dilunakkan).

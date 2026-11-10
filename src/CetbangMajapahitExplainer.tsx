@@ -21,8 +21,8 @@ import {
 export const VIDEO_FPS = 30;
 export const VIDEO_WIDTH = 1080;
 export const VIDEO_HEIGHT = 1920;
-// 62.064 detik audio @ 30 FPS = 1862 frames
-export const DURATION_IN_FRAMES = 1862;
+// 61.224 detik audio @ 30 FPS = 1837 frames
+export const DURATION_IN_FRAMES = 1837;
 
 // ============================================================================
 // TIMELINE KINETIC SUBTITLE (TEPAT DI DADA KARAKTER, ANTI-DRIFT 100% VERBATIM)
@@ -30,74 +30,70 @@ export const DURATION_IN_FRAMES = 1862;
 const SUBTITLE_WORDS: KineticWord[] = [
   { text: "BANYAK YANG MENGIRA", startFrame: 3, endFrame: 26 },
   { text: "SENJATA API DAN", startFrame: 26, endFrame: 50 },
-  { text: "MESIU PERTAMA KALI", startFrame: 50, endFrame: 75 },
-  { text: "DIBAWA OLEH PENJAJAH", startFrame: 75, endFrame: 107 },
-  { text: "BANGSA EROPA KE", startFrame: 107, endFrame: 128 },
-  { text: "NUSANTARA", startFrame: 128, endFrame: 154 },
-  { text: "FAKTANYA RATUSAN", startFrame: 176, endFrame: 220 },
-  { text: "TAHUN SEBELUM KAPAL", startFrame: 220, endFrame: 244 },
-  { text: "BELANDA PERTAMA", startFrame: 244, endFrame: 262 },
-  { text: "MENDARAT DI BANTEN", startFrame: 262, endFrame: 300 },
-  { text: "KERAJAAN", startFrame: 300, endFrame: 312 },
-  { text: "MAJAPAHIT SUDAH", startFrame: 312, endFrame: 334 },
-  { text: "MENGUASAI", startFrame: 334, endFrame: 348 },
-  { text: "TEKNOLOGI SENJATA", startFrame: 348, endFrame: 375 },
-  { text: "API TERCANGGIH DI", startFrame: 375, endFrame: 397 },
-  { text: "DUNIA!", startFrame: 397, endFrame: 416, emphasis: true },
-  { text: "SENJATA RAHASIA INI", startFrame: 438, endFrame: 468 },
-  { text: "BERNAMA CETBANG", startFrame: 468, endFrame: 503, emphasis: true },
-  { text: "SEBUAH MERIAM PUTAR", startFrame: 503, endFrame: 527 },
-  { text: "PERUNGGU YANG", startFrame: 527, endFrame: 542 },
-  { text: "DITEMPA OLEH PANDAI", startFrame: 542, endFrame: 566 },
-  { text: "BESI NUSANTARA DARI", startFrame: 566, endFrame: 592 },
-  { text: "TEKNOLOGI INVASI", startFrame: 592, endFrame: 621 },
-  { text: "TENTARA MONGOL", startFrame: 621, endFrame: 638 },
-  { text: "KUBILAI KHAN PADA", startFrame: 638, endFrame: 662 },
-  { text: "TAHUN 1293!", startFrame: 662, endFrame: 723, emphasis: true },
-  { text: "BERBEDA DENGAN", startFrame: 744, endFrame: 764 },
-  { text: "MERIAM KUNO YANG", startFrame: 764, endFrame: 782 },
-  { text: "KAKU", startFrame: 782, endFrame: 806 },
-  { text: "CETBANG MAJAPAHIT", startFrame: 806, endFrame: 831, emphasis: true },
-  { text: "MEMILIKI SISTEM", startFrame: 831, endFrame: 852 },
-  { text: "PENGISIAN PELURU", startFrame: 852, endFrame: 872 },
-  { text: "DARI BELAKANG ATAU", startFrame: 872, endFrame: 894 },
-  { text: "BREECH-LOADING!", startFrame: 894, endFrame: 926, emphasis: true },
-  { text: "SERTA GARPU PUTAR", startFrame: 926, endFrame: 951 },
-  { text: "FLEKSIBEL YANG BISA", startFrame: 951, endFrame: 978 },
-  { text: "DIARAHKAN KE SEGALA", startFrame: 978, endFrame: 1003 },
-  { text: "SUDUT SECARA KILAT!", startFrame: 1003, endFrame: 1037, emphasis: true },
-  { text: "SETIAP KAPAL PERANG", startFrame: 1058, endFrame: 1083 },
-  { text: "RAKSASA JUNG JAWA", startFrame: 1083, endFrame: 1112, emphasis: true },
-  { text: "DIPERSENJATAI", startFrame: 1112, endFrame: 1130 },
-  { text: "PULUHAN MERIAM", startFrame: 1130, endFrame: 1149 },
-  { text: "CETBANG DI LAMBUNG", startFrame: 1149, endFrame: 1176 },
-  { text: "DAN HALUAN KAPAL", startFrame: 1176, endFrame: 1212 },
-  { text: "SEKALI PERINTAH", startFrame: 1233, endFrame: 1252 },
-  { text: "MAHAPATIH GAJAH MADA", startFrame: 1252, endFrame: 1282, emphasis: true },
-  { text: "BERKUMANDANG", startFrame: 1282, endFrame: 1313 },
-  { text: "SEMBURAN PELURU", startFrame: 1313, endFrame: 1332 },
-  { text: "TIMAH DAN API", startFrame: 1332, endFrame: 1354 },
-  { text: "MESIU LANGSUNG", startFrame: 1354, endFrame: 1372 },
-  { text: "MENENGGELAMKAN", startFrame: 1372, endFrame: 1389 },
-  { text: "KAPAL MUSUH DARI", startFrame: 1389, endFrame: 1412 },
-  { text: "JARAK JAUH!", startFrame: 1412, endFrame: 1439, emphasis: true },
-  { text: "KECANGGIHAN", startFrame: 1460, endFrame: 1476 },
-  { text: "TAKTIK MERIAM", startFrame: 1476, endFrame: 1494 },
-  { text: "CETBANG INILAH KUNCI", startFrame: 1494, endFrame: 1520 },
-  { text: "UTAMA YANG", startFrame: 1520, endFrame: 1537 },
-  { text: "MENGANTARKAN", startFrame: 1537, endFrame: 1551 },
-  { text: "ARMADA LAUT", startFrame: 1551, endFrame: 1570 },
-  { text: "MAJAPAHIT SUKSES", startFrame: 1570, endFrame: 1598, emphasis: true },
-  { text: "MENYATUKAN", startFrame: 1598, endFrame: 1612 },
-  { text: "SELURUH KEPULAUAN", startFrame: 1612, endFrame: 1635 },
-  { text: "NUSANTARA!", startFrame: 1635, endFrame: 1659, emphasis: true },
-  { text: "MENURUT KALIAN", startFrame: 1681, endFrame: 1715 },
-  { text: "BANGGA NGGAK SIH", startFrame: 1715, endFrame: 1732 },
-  { text: "TAHU BAHWA LELUHUR", startFrame: 1732, endFrame: 1760 },
-  { text: "KITA TERNYATA ADALAH", startFrame: 1760, endFrame: 1788 },
-  { text: "PELOPOR", startFrame: 1788, endFrame: 1797 },
-  { text: "PERSENJATAAN API", startFrame: 1797, endFrame: 1820 },
-  { text: "DUNIA?", startFrame: 1820, endFrame: 1840, emphasis: true },
+  { text: "MESIU PERTAMA KALI", startFrame: 50, endFrame: 76 },
+  { text: "DIBAWA OLEH PENJAJAH", startFrame: 76, endFrame: 108 },
+  { text: "BANGSA EROPA KE", startFrame: 108, endFrame: 129 },
+  { text: "NUSANTARA", startFrame: 129, endFrame: 155 },
+  { text: "FAKTANYA", startFrame: 176, endFrame: 207 },
+  { text: "JAUH SEBELUM ARMADA", startFrame: 207, endFrame: 234 },
+  { text: "PORTUGIS TIBA DI", startFrame: 234, endFrame: 257 },
+  { text: "MALAKA TAHUN 1511", startFrame: 257, endFrame: 317 },
+  { text: "KERAJAAN", startFrame: 317, endFrame: 329 },
+  { text: "MAJAPAHIT SUDAH", startFrame: 329, endFrame: 351 },
+  { text: "MEMASANG MERIAM DI", startFrame: 351, endFrame: 372 },
+  { text: "KAPAL-KAPAL", startFrame: 372, endFrame: 387 },
+  { text: "PERANGNYA", startFrame: 387, endFrame: 408 },
+  { text: "SENJATA INI BERNAMA", startFrame: 429, endFrame: 458 },
+  { text: "CETBANG MERIAM", startFrame: 458, endFrame: 493 },
+  { text: "PERUNGGU BUATAN", startFrame: 493, endFrame: 512 },
+  { text: "PANDAI LOGAM", startFrame: 512, endFrame: 533 },
+  { text: "NUSANTARA", startFrame: 533, endFrame: 559 },
+  { text: "MESIU SENDIRI SUDAH", startFrame: 580, endFrame: 604 },
+  { text: "DIKENAL DI JAWA", startFrame: 604, endFrame: 626 },
+  { text: "SEJAK ABAD KEEMPAT", startFrame: 626, endFrame: 651 },
+  { text: "BELAS", startFrame: 651, endFrame: 673 },
+  { text: "TAK LAMA SETELAH", startFrame: 673, endFrame: 692 },
+  { text: "PASUKAN MONGOL", startFrame: 692, endFrame: 711 },
+  { text: "KUBILAI KHAN", startFrame: 711, endFrame: 728 },
+  { text: "MENYERBU JAWA PADA", startFrame: 728, endFrame: 754 },
+  { text: "TAHUN 1293", startFrame: 754, endFrame: 816 },
+  { text: "VERSI YANG LEBIH", startFrame: 837, endFrame: 855 },
+  { text: "MAJU MEMAKAI SISTEM", startFrame: 855, endFrame: 886 },
+  { text: "PENGISIAN PELURU", startFrame: 886, endFrame: 906 },
+  { text: "DARI BELAKANG ATAU", startFrame: 906, endFrame: 929 },
+  { text: "BREECH-LOADING", startFrame: 929, endFrame: 961 },
+  { text: "SERTA GARPU PUTAR", startFrame: 961, endFrame: 987 },
+  { text: "YANG BISA DIARAHKAN", startFrame: 987, endFrame: 1013 },
+  { text: "KE BERBAGAI SUDUT", startFrame: 1013, endFrame: 1036 },
+  { text: "DENGAN SANGAT CEPAT", startFrame: 1036, endFrame: 1068 },
+  { text: "KAPAL PERANG JUNG", startFrame: 1089, endFrame: 1112 },
+  { text: "JAWA", startFrame: 1112, endFrame: 1121 },
+  { text: "DIPERSENJATAI", startFrame: 1121, endFrame: 1140 },
+  { text: "MERIAM CETBANG DI", startFrame: 1140, endFrame: 1164 },
+  { text: "LAMBUNG DAN HALUAN", startFrame: 1164, endFrame: 1191 },
+  { text: "KAPAL", startFrame: 1191, endFrame: 1211 },
+  { text: "SAAT ABA-ABA TEMBAK", startFrame: 1233, endFrame: 1262 },
+  { text: "BERKUMANDANG", startFrame: 1262, endFrame: 1292 },
+  { text: "SEMBURAN PELURU DAN", startFrame: 1292, endFrame: 1317 },
+  { text: "API MESIU MENGHANTAM", startFrame: 1317, endFrame: 1346 },
+  { text: "KAPAL MUSUH DARI", startFrame: 1346, endFrame: 1367 },
+  { text: "KEJAUHAN", startFrame: 1367, endFrame: 1392 },
+  { text: "TEKNOLOGI MERIAM", startFrame: 1413, endFrame: 1436 },
+  { text: "INILAH SALAH SATU", startFrame: 1436, endFrame: 1460 },
+  { text: "KEKUATAN UTAMA", startFrame: 1460, endFrame: 1480 },
+  { text: "ARMADA LAUT", startFrame: 1480, endFrame: 1497 },
+  { text: "MAJAPAHIT DALAM", startFrame: 1497, endFrame: 1522 },
+  { text: "MENGUASAI JALUR", startFrame: 1522, endFrame: 1546 },
+  { text: "DAGANG REMPAH DI", startFrame: 1546, endFrame: 1567 },
+  { text: "SELURUH PERAIRAN", startFrame: 1567, endFrame: 1587 },
+  { text: "NUSANTARA YANG LUAS", startFrame: 1587, endFrame: 1624 },
+  { text: "MENURUT KALIAN", startFrame: 1646, endFrame: 1680 },
+  { text: "BANGGA NGGAK SIH", startFrame: 1680, endFrame: 1697 },
+  { text: "TAHU BAHWA LELUHUR", startFrame: 1697, endFrame: 1725 },
+  { text: "KITA TERNYATA SUDAH", startFrame: 1725, endFrame: 1750 },
+  { text: "MENGUASAI", startFrame: 1750, endFrame: 1763 },
+  { text: "TEKNOLOGI MERIAM", startFrame: 1763, endFrame: 1786 },
+  { text: "BUATAN SENDIRI", startFrame: 1786, endFrame: 1816 },
 ];
 
 // ============================================================================
@@ -213,10 +209,10 @@ export const CetbangMajapahitExplainer: React.FC = () => {
         dockAt={60}
       />
 
-      {/* 3. SHOT SEQUENCES (TOTAL 1862 FRAMES / 62.06s) */}
+      {/* 3. SHOT SEQUENCES (TOTAL 1837 FRAMES / 61.23s) */}
       <Series>
         {/* ================================================================== */}
-        {/* SHOT 1: THE INVERSION HOOK (0 - 170 frames / 5.7s)                 */}
+        {/* SHOT 1: THE INVERSION HOOK (0 - 170 / 170f / 5.7s) */}
         {/* ================================================================== */}
         <Series.Sequence durationInFrames={170}>
           <CameraShots durationInFrames={170} offset={0}>
@@ -243,21 +239,22 @@ export const CetbangMajapahitExplainer: React.FC = () => {
         </Series.Sequence>
 
         {/* ================================================================== */}
-        {/* SHOT 2: KAPAL BELANDA VS MAJAPAHIT (170 - 430 / 260 frames / 8.7s) */}
+        {/* SHOT 2: MERIAM DI KAPAL MAJAPAHIT (SEBELUM PORTUGIS 1511) (170 - 423 / 253f / 8.4s) */}
         {/* ================================================================== */}
-        <Series.Sequence durationInFrames={260}>
-          <CameraShots durationInFrames={260} offset={1}>
+        <Series.Sequence durationInFrames={253}>
+          <CameraShots durationInFrames={253} offset={1}>
             <AbsoluteFill>
               <ParchmentBg mood="parchment" />
               <SpeedLines intensity={0.5} />
               <JungJawaDeck2D />
-              {/* Komandan Kolonial Belanda Kaget di Sisi Kiri */}
+              {/* Nakhoda Jung Jawa membawa panji di sisi kiri (tanpa tokoh Belanda: anakronis untuk era Majapahit) */}
               <div style={{ position: "absolute", top: "45%", left: "30%", transform: "translate(-50%, -50%)", zIndex: 35 }}>
                 <Stickman
-                  pose="shocked"
-                  face="shivering_cry"
-                  accessory="colonial_hat"
-                  scale={0.92}
+                  pose="proud"
+                  face="confident"
+                  accessory="turban"
+                  prop="flag"
+                  scale={0.96}
                 />
               </div>
               {/* Pejuang Majapahit Menatap Tajam di Sisi Kanan */}
@@ -276,10 +273,10 @@ export const CetbangMajapahitExplainer: React.FC = () => {
         </Series.Sequence>
 
         {/* ================================================================== */}
-        {/* SHOT 3: SENJATA RAHASIA CETBANG & MONGOL 1293 (430 - 730 / 300f / 10s)*/}
+        {/* SHOT 3: CETBANG PERUNGGU & MESIU PASCA-MONGOL 1293 (423 - 831 / 408f / 13.6s) */}
         {/* ================================================================== */}
-        <Series.Sequence durationInFrames={300}>
-          <CameraShots durationInFrames={300} offset={2}>
+        <Series.Sequence durationInFrames={408}>
+          <CameraShots durationInFrames={408} offset={2}>
             <AbsoluteFill>
               <ParchmentBg mood="parchment" />
               <SpeedLines intensity={0.7} />
@@ -299,10 +296,10 @@ export const CetbangMajapahitExplainer: React.FC = () => {
         </Series.Sequence>
 
         {/* ================================================================== */}
-        {/* SHOT 4: TEKNOLOGI BREECH-LOADING & GARPU PUTAR (730 - 1040 / 310f / 10.3s)*/}
+        {/* SHOT 4: TEKNOLOGI BREECH-LOADING & GARPU PUTAR (831 - 1083 / 252f / 8.4s) */}
         {/* ================================================================== */}
-        <Series.Sequence durationInFrames={310}>
-          <CameraShots durationInFrames={310} offset={3}>
+        <Series.Sequence durationInFrames={252}>
+          <CameraShots durationInFrames={252} offset={3}>
             <AbsoluteFill>
               <ParchmentBg mood="sunburst" />
               <SpeedLines intensity={1.2} />
@@ -322,10 +319,10 @@ export const CetbangMajapahitExplainer: React.FC = () => {
         </Series.Sequence>
 
         {/* ================================================================== */}
-        {/* SHOT 5: KAPAL RAKSASA JUNG JAWA (1040 - 1220 / 180 frames / 6.0s) */}
+        {/* SHOT 5: KAPAL PERANG JUNG JAWA (1083 - 1243 / 160f / 5.3s) */}
         {/* ================================================================== */}
-        <Series.Sequence durationInFrames={180}>
-          <CameraShots durationInFrames={180} offset={4}>
+        <Series.Sequence durationInFrames={160}>
+          <CameraShots durationInFrames={160} offset={4}>
             <AbsoluteFill>
               <ParchmentBg mood="dark_storm" />
               <SpeedLines intensity={0.8} />
@@ -345,10 +342,10 @@ export const CetbangMajapahitExplainer: React.FC = () => {
         </Series.Sequence>
 
         {/* ================================================================== */}
-        {/* SHOT 6: GAJAH MADA & TEMBAKAN MERIAM DAHSYAT (1220 - 1460 / 240f / 8.0s)*/}
+        {/* SHOT 6: ABA-ABA TEMBAK & SEMBURAN MERIAM (1243 - 1407 / 164f / 5.5s) */}
         {/* ================================================================== */}
-        <Series.Sequence durationInFrames={240}>
-          <CameraShots durationInFrames={240} offset={5}>
+        <Series.Sequence durationInFrames={164}>
+          <CameraShots durationInFrames={164} offset={5}>
             <AbsoluteFill>
               <ParchmentBg mood="dark_storm" />
               <SpeedLines intensity={1.5} />
@@ -368,10 +365,10 @@ export const CetbangMajapahitExplainer: React.FC = () => {
         </Series.Sequence>
 
         {/* ================================================================== */}
-        {/* SHOT 7: ARMADA LAUT MENYATUKAN NUSANTARA (1460 - 1670 / 210f / 7.0s)*/}
+        {/* SHOT 7: ARMADA LAUT & JALUR DAGANG NUSANTARA (1407 - 1647 / 240f / 8.0s) */}
         {/* ================================================================== */}
-        <Series.Sequence durationInFrames={210}>
-          <CameraShots durationInFrames={210} offset={6}>
+        <Series.Sequence durationInFrames={240}>
+          <CameraShots durationInFrames={240} offset={6}>
             <AbsoluteFill>
               <ParchmentBg mood="sunburst" />
               <SpeedLines intensity={1.2} />
@@ -391,10 +388,10 @@ export const CetbangMajapahitExplainer: React.FC = () => {
         </Series.Sequence>
 
         {/* ================================================================== */}
-        {/* SHOT 8: CLOSING CTA - PELOPOR SENJATA API (1670 - 1862 / 192f / 6.4s)*/}
+        {/* SHOT 8: CLOSING CTA - TEKNOLOGI MERIAM SENDIRI (1647 - 1837 / 190f / 6.3s) */}
         {/* ================================================================== */}
-        <Series.Sequence durationInFrames={192}>
-          <CameraShots durationInFrames={192} offset={7}>
+        <Series.Sequence durationInFrames={190}>
+          <CameraShots durationInFrames={190} offset={7}>
             <AbsoluteFill>
               <ParchmentBg mood="sunburst" />
               <SpeedLines intensity={0.9} />

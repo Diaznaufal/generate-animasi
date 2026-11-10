@@ -1,16 +1,16 @@
 Banyak yang mengira senjata api dan mesiu pertama kali dibawa oleh penjajah bangsa Eropa ke Nusantara.
 
-Faktanya, ratusan tahun sebelum kapal Belanda pertama mendarat di Banten, Kerajaan Majapahit sudah menguasai teknologi senjata api tercanggih di dunia!
+Faktanya, jauh sebelum armada Portugis tiba di Malaka tahun 1511, Kerajaan Majapahit sudah memasang meriam di kapal-kapal perangnya!
 
-Senjata rahasia ini bernama Cetbang, sebuah meriam putar perunggu yang ditempa oleh pandai besi Nusantara dari teknologi invasi tentara Mongol Kubilai Khan pada tahun 1293.
+Senjata ini bernama Cetbang, meriam perunggu buatan pandai logam Nusantara. Mesiu sendiri sudah dikenal di Jawa sejak abad keempat belas, tak lama setelah pasukan Mongol Kubilai Khan menyerbu Jawa pada tahun 1293.
 
-Berbeda dengan meriam kuno yang kaku, Cetbang Majapahit memiliki sistem pengisian peluru dari belakang atau breech-loading, serta garpu putar fleksibel yang bisa diarahkan ke segala sudut secara kilat!
+Versi yang lebih maju memakai sistem pengisian peluru dari belakang atau breech-loading, serta garpu putar yang bisa diarahkan ke berbagai sudut dengan sangat cepat!
 
-Setiap kapal perang raksasa Jung Jawa dipersenjatai puluhan meriam Cetbang di lambung dan haluan kapal. Sekali perintah Mahapatih Gajah Mada berkumandang, semburan peluru timah dan api mesiu langsung menenggelamkan kapal musuh dari jarak jauh!
+Kapal perang Jung Jawa dipersenjatai meriam Cetbang di lambung dan haluan kapal. Saat aba-aba tembak berkumandang, semburan peluru dan api mesiu menghantam kapal musuh dari kejauhan!
 
-Kecanggihan taktik meriam Cetbang inilah kunci utama yang mengantarkan armada laut Majapahit sukses menyatukan seluruh kepulauan Nusantara.
+Teknologi meriam inilah salah satu kekuatan utama armada laut Majapahit dalam menguasai jalur dagang rempah di seluruh perairan Nusantara yang luas.
 
-Menurut kalian, bangga nggak sih tahu bahwa leluhur kita ternyata adalah pelopor persenjataan api dunia?
+Menurut kalian, bangga nggak sih tahu bahwa leluhur kita ternyata sudah menguasai teknologi meriam buatan sendiri?
 
 ## Sumber
 
@@ -28,19 +28,5 @@ Menurut kalian, bangga nggak sih tahu bahwa leluhur kita ternyata adalah pelopor
 > - "Ditempa dari teknologi invasi Mongol 1293" — DIPERDEBATKAN. Averoes (2020) menunjukkan senjata Mongol sangat berbeda dari cetbang breech-loading.
 > - "Atas perintah Gajah Mada" dan "puluhan cetbang per kapal Jung Jawa" — BELUM TERVERIFIKASI. Gajah Mada wafat 1364, sebelum breech-loading masuk (±1460-an menurut Averoes).
 > - "Kunci utama menyatukan Nusantara" — LEMAH. Klaim kausal tanpa sumber.
-
-## Usulan Revisi Naskah (belum dirender)
-
-> Banyak yang mengira senjata api dan mesiu pertama kali dibawa oleh penjajah bangsa Eropa ke Nusantara.
 >
-> Faktanya, jauh sebelum armada Portugis tiba di Malaka, Kerajaan Majapahit sudah memakai meriam di kapal perangnya!
->
-> Senjata ini bernama Cetbang, meriam perunggu buatan pandai logam Nusantara. Mesiu sendiri dikenal di Jawa sejak abad keempat belas, tak lama setelah ekspedisi Mongol tahun 1293.
->
-> Versi yang lebih maju memakai sistem pengisian peluru dari belakang atau breech-loading, serta garpu putar yang bisa diarahkan ke berbagai sudut dengan cepat!
->
-> Kapal perang Jung Jawa dipersenjatai meriam Cetbang di lambung dan haluan. Semburan peluru dan api mesiu bisa menghantam kapal musuh dari kejauhan!
->
-> Teknologi meriam inilah salah satu kekuatan armada laut Majapahit di seluruh perairan Nusantara.
->
-> Menurut kalian, bangga nggak sih tahu bahwa leluhur kita sudah menguasai teknologi meriam sendiri?
+> Status: narasi di atas sudah direvisi sesuai catatan ini (klaim lemah/anakronis dihapus atau dilunakkan).
