@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 """Measure narrator voice pitch (F0 in Hz) using autocorrelation on voiced audio."""
 import json, subprocess, sys
-import numpy as np
+try:
+    import numpy as np
+except ImportError as e:
+    sys.exit(
+        f"Missing Python dependency: {e.name}. "
+        "Install with: .venv/bin/pip install -r requirements.txt"
+    )
 
 SR = 16000
 

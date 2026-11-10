@@ -4,17 +4,52 @@
 Extracts lighting, contrast, color temperature, optical flow, and shot boundaries.
 Outputs <out_dir>/<id>.npz and <out_dir>/<id>_shots.json.
 """
-import json, os, subprocess, sys
-import numpy as np
-import cv2
+import json, os, subprocess, sys, tempfile
 
-W, H, FPS = 192, 108, 30
+try:
+    import numpy as np
+    import cv2
+except ImportError as e:
+    sys.exit(
+        f"Missing Python dependency: {e.name}. "
+        "Install with: .venv/bin/pip install -r requirements.txt"
+    )
+
+FPS = 30
+LONG_SIDE = 192  # analysis resolution: long edge in px, aspect ratio preserved
 
 if len(sys.argv) < 3:
     print(f"Usage: {sys.argv[0]} <video.mp4> <out_dir>", file=sys.stderr)
     sys.exit(1)
 
 src, out_dir = sys.argv[1], sys.argv[2]
+
+
+def probe_size(path):
+    """Return (width, height) of the first video stream, rotation applied."""
+    r = subprocess.run(
+        ["ffprobe", "-v", "error", "-select_streams", "v:0",
+         "-show_entries", "stream=width,height:stream_side_data=rotation",
+         "-of", "json", path],
+        capture_output=True, text=True,
+    )
+    if r.returncode != 0:
+        sys.exit(f"ffprobe failed on {path} (exit {r.returncode}): {r.stderr.strip()}")
+    st = json.loads(r.stdout)["streams"][0]
+    w, h = int(st["width"]), int(st["height"])
+    rot = next((abs(int(d.get("rotation", 0))) for d in st.get("side_data_list", [])), 0)
+    return (h, w) if rot in (90, 270) else (w, h)
+
+
+def even(x):
+    return max(2, int(round(x / 2)) * 2)
+
+
+src_w, src_h = probe_size(src)
+if src_w >= src_h:
+    W, H = LONG_SIDE, even(LONG_SIDE * src_h / src_w)
+else:
+    W, H = even(LONG_SIDE * src_w / src_h), LONG_SIDE  # 9:16 Shorts -> 108x192
 vid = os.path.basename(src).rsplit(".", 1)[0]
 os.makedirs(out_dir, exist_ok=True)
 
@@ -23,7 +58,8 @@ cmd = [
     "-vf", f"fps={FPS},scale={W}:{H}:flags=area",
     "-pix_fmt", "rgb24", "-f", "rawvideo", "-"
 ]
-proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, bufsize=W * H * 3 * 64)
+err_log = tempfile.TemporaryFile()  # file, not a pipe: a chatty ffmpeg cannot deadlock us
+proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=err_log, bufsize=W * H * 3 * 64)
 size = W * H * 3
 
 keys = [
@@ -87,7 +123,12 @@ while True:
         m["flowmag"].append(float(np.sqrt(fx**2 + fy**2).mean()))
     prev_g, prev_h = g, h
 
-proc.wait()
+if proc.wait() != 0:
+    err_log.seek(0)
+    err = err_log.read().decode(errors="replace").strip()
+    sys.exit(f"ffmpeg failed on {src} (exit {proc.returncode}): {err}")
+if not m["luma"]:
+    sys.exit(f"ffmpeg decoded 0 frames from {src}")
 
 arr = {k: np.asarray(v, np.float32) for k, v in m.items()}
 np.savez_compressed(os.path.join(out_dir, f"{vid}.npz"), **arr)

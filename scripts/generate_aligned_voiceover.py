@@ -3,7 +3,13 @@ import json
 import math
 import os
 import sys
-import edge_tts
+try:
+    import edge_tts
+except ImportError:
+    sys.exit(
+        "Missing Python dependency: edge-tts. "
+        "Install with: .venv/bin/pip install -r requirements.txt"
+    )
 
 # FPS default Remotion
 FPS = 30
