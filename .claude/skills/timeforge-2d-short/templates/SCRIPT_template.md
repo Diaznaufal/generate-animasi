@@ -9,7 +9,7 @@ Voiceover: id-ID-ArdiNeural (Tempo Cepat ~150 WPM)
 ## 1. NASKAH NARRATIVE
 
 ### [BEAT 1: THE INVERSION HOOK] (00.0s – 03.5s / 10–14 kata)
-*Visual: CoverBadge Detik 0 aktif (Y: 350-440). Latar Sunburst emas berputar + Speedlines. Karakter pose gagah.*
+*Visual: CoverBadge Detik 0 aktif (pill Y: 470, judul Y: 560, di dalam crop 1:1 Y 420–1500). Latar Sunburst emas berputar + Speedlines. Karakter pose gagah.*
 > [Tulis hook 1 kalimat yang mematahkan mitos atau membongkar kejanggalan sejarah]
 > Contoh: "Bukan meriam atau ribuan pasukan yang bikin Belanda frustrasi di Buton!"
 
@@ -38,5 +38,5 @@ Voiceover: id-ID-ArdiNeural (Tempo Cepat ~150 WPM)
 
 ## 2. GENERATE AUDIO COMMAND
 ```bash
-node scripts/generate_voiceover.mjs --script=path/to/this-script.md --out=public/audio/narasi.mp3
+.venv/bin/python scripts/generate_aligned_voiceover.py path/to/this-script.md public/audio/<slug>_narasi.mp3 content/<slug>/subtitles_aligned.json
 ```

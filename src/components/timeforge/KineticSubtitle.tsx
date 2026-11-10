@@ -18,7 +18,7 @@ interface KineticSubtitleProps {
 export const KineticSubtitle: React.FC<KineticSubtitleProps> = ({
   words,
   top = "58%", // Tepat di area dada/perut karakter sesuai video asli @TimeForge_id
-  fontSize = 88,
+  fontSize = 54, // Spec CLAUDE.md: 42–56px
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -61,11 +61,12 @@ export const KineticSubtitle: React.FC<KineticSubtitleProps> = ({
           color: activeWord.color || (activeWord.emphasis ? "#ef4444" : "#ffffff"),
           textAlign: "center",
           textTransform: "uppercase",
-          letterSpacing: "4px",
+          letterSpacing: "2px",
           padding: "4px 32px",
-          WebkitTextStroke: "10px #000000",
+          maxWidth: "960px",
+          WebkitTextStroke: "5px #000000", // Spec CLAUDE.md: 3–5px
           paintOrder: "stroke fill",
-          textShadow: "0 14px 30px rgba(0, 0, 0, 0.95)",
+          textShadow: "0 8px 18px rgba(0, 0, 0, 0.95)",
           lineHeight: "1.0",
         }}
       >

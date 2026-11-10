@@ -19,9 +19,9 @@ Platform YouTube Shorts dan Instagram Profile Grid memotong frame awal sebagai t
 - **CoverBadge Props:**
   - `label`: Pill badge kategori/seri (misal `● SEJARAH INDONESIA`, `● BENTENG KUNO`).
   - `title`: Judul hook thumbnail tebal 2–4 kata (misal `TAK PERNAH JEBOL!`, `BIOLA SAKTI`).
-  - `centerY = 350`, `titleTop = 440`.
-  - **Animasi:** Title memudar di frame 45 (`titleUntil: 45`), badge merapat (*docking*) halus ke pojok kiri atas di frame 60 (`dockAt: 60`, `x: 180, y: 260`).
-  - **Wajib Export Frame 30:** `npx remotion still <Id> out/cover.png --frame=30`.
+  - `centerY = 470` (pill Y 438–502, di dalam crop 1:1), `titleTop = 560`.
+  - **Animasi:** Title memudar di frame 45 (`titleUntil: 45`), badge merapat (*docking*) halus ke pojok kiri atas pada frame 42–60, selesai di frame 60 (`dockAt: 60`, `x: 180, y: 260`).
+  - **Wajib Export Frame 30:** `npx remotion still <Id> out/cover-<Id>.png --frame=30`.
 
 ---
 
@@ -54,6 +54,7 @@ Platform YouTube Shorts dan Instagram Profile Grid memotong frame awal sebagai t
 ## 5. KINETIC TYPOGRAPHY (SUBTITLE)
 - **Font:** `Impact, Arial Black, sans-serif` (900 ultra-bold uppercase).
 - **Posisi:** Tepat di area dada/perut karakter (`top: 58%`), bukan di footer.
-- **Stroke Outline:** `-webkit-text-stroke: 10px #000000; paint-order: stroke fill;`.
+- **Ukuran:** 42–56px (default `fontSize = 54`).
+- **Stroke Outline:** `-webkit-text-stroke: 5px #000000; paint-order: stroke fill;` (spec 3–5px).
 - **Motion:** Spring pop-in tajam (`damping: 9, mass: 0.45, stiffness: 290`).
 - **Pacing:** Muncul 1–3 kata per hentakan suara narator.

@@ -38,16 +38,16 @@ Repository untuk memproduksi video animasi edukasi & sejarah viral format vertik
    - Pasang `<CoverBadge>` di root komposisi untuk detik 0 (frame 0–45).
    - Menampilkan label kategori dan judul hook besar dalam safe zone IG Grid 1:1 (`Y: 420–1500`) dan 4:5.
    - Judul memudar di frame 45, badge merapat halus (docking) ke pojok atas di frame 60.
-   - Ekspor still frame 30 ke `out/cover.png` untuk verifikasi cover.
+   - Ekspor still frame 30 ke `out/cover-<CompositionId>.png` untuk verifikasi cover.
 
 5. **Durasi & Audio Narasi (Wajib Minimal 1 Menit):**
    - Durasi Standar: Minimal 60 detik (60–70s @ 30 FPS = 1800–2100 frames, ~135–160 kata).
    - Naskah 5-Beat: Inversion Hook (0-6s) $\rightarrow$ Scale & Geography (6-20s) $\rightarrow$ Enemy Siege (20-35s) $\rightarrow$ Tactical Secret (35-48s) $\rightarrow$ Triumph & CTA (48-65s).
-   - Kunci `durationInFrames = Math.ceil(audioDurationInSeconds * FPS)` langsung dari audio `public/audio/narasi.mp3`.
+   - Kunci `durationInFrames = Math.ceil(audioDurationInSeconds * FPS)` langsung dari audio per topik `public/audio/<slug>_narasi.mp3`.
    - Pasang `<Audio />` di root `<AbsoluteFill>` di luar `<Series>`.
 
 ## Skills
 
-- **`timeforge-2d-short`:** Master SOP & blueprint lengkap 2D Vector Stickman Comic Explainer (naskah 4-beat, artikulasi stickman, detik 0 cover badge, kinetic typography di dada).
+- **`timeforge-2d-short`:** Master SOP & blueprint lengkap 2D Vector Stickman Comic Explainer (naskah 5-beat, artikulasi stickman, detik 0 cover badge, kinetic typography di dada).
 - **`timeforge-qa`:** SOP Quality Assurance & verifikasi menyeluruh (audit subtitle drift, anti-hallucination, IG grid safe zone, contact sheet).
 - **`channel-atm`:** Tool komputasi visual & audio frame-by-frame 30 FPS untuk reverse-engineering channel referensi.

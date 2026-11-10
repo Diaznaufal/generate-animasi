@@ -8,11 +8,11 @@ export interface CoverBadgeProps {
   title?: string;
   /** Frame saat title mulai memudar (default: frame 45 / detik 1.5) */
   titleUntil?: number;
-  /** Frame saat badge mengecil / merapat ke atas (docking) (default: frame 60 / detik 2) */
+  /** Frame saat badge selesai merapat ke atas (docking), animasi berjalan [dockAt-18, dockAt] (default: frame 60 / detik 2) */
   dockAt?: number;
-  /** Posisi Y awal Badge di tengah Safe Zone IG Grid (default: 440) */
+  /** Posisi Y awal Badge di tengah Safe Zone IG Grid (default: 470, di dalam crop 1:1 Y 420–1500) */
   centerY?: number;
-  /** Posisi Y awal Judul Hook Thumbnail (default: 540) */
+  /** Posisi Y awal Judul Hook Thumbnail (default: 560) */
   titleTop?: number;
   /** Warna aksen badge (default: #dc2626 merah pejuang) */
   accentColor?: string;
@@ -42,8 +42,8 @@ export const CoverBadge: React.FC<CoverBadgeProps> = ({
   title,
   titleUntil = 45,
   dockAt = 60,
-  centerY = 350,
-  titleTop = 440,
+  centerY = 470,
+  titleTop = 560,
   accentColor = "#dc2626", // Merah bendera / aksen TimeForge
   textColor = "#ffffff",
   panelColor = "#0f172a", // Hitam pekat kontras tinggi
@@ -53,7 +53,7 @@ export const CoverBadge: React.FC<CoverBadgeProps> = ({
   const label = labelText.toUpperCase();
 
   // Animasi Docking (Badge mengecil dan merapat ke pojok atas agar adegan utama leluasa)
-  const dock = interpolate(frame, [dockAt, dockAt + 18], [0, 1], clampEasing);
+  const dock = interpolate(frame, [dockAt - 18, dockAt], [0, 1], clampEasing);
   const scale = 1 - dock * 0.32;
   const x = interpolate(dock, [0, 1], [540, 180]);
   const y = interpolate(dock, [0, 1], [centerY, 260]);
