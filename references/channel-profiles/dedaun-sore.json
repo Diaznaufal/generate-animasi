@@ -1,0 +1,71 @@
+{
+  "channel_id": "UC228F8bosiZYj85TQBqcMgg",
+  "channel_name": "Dedaun Sore",
+  "genre": "Storybook Melodrama & Moral Reflection",
+  "total_videos_analyzed": 1,
+  "total_frames_analyzed": 3104,
+  "metrics": {
+    "luma_mean": 176.5,
+    "luma_p05": 108.0,
+    "luma_p95": 222.0,
+    "contrast_mean": 40.8,
+    "sat_mean": 66.2,
+    "color_temp_mean": 28.8,
+    "flow_mean": 0.0513,
+    "flow_p90": 0.995,
+    "shot_count_mean": 25.0,
+    "shot_duration_median": 3.67,
+    "duration_mean": 103.47,
+    "transitions": {
+      "dissolve_pct": 71.4,
+      "cut_pct": 28.6
+    }
+  },
+  "transcripts_summary": {
+    "count": 1,
+    "mean_words": 235,
+    "mean_wpm": 134.1,
+    "mean_words_per_sec": 2.23
+  },
+  "audio_summary": {
+    "pitch_median_hz": 133,
+    "pitch_iqr_hz": [118, 158],
+    "voice_tone": "male_adult_warm_reflective"
+  },
+  "subtitle_spec": {
+    "font_family": "Poppins, Nunito, sans-serif",
+    "font_size": 48,
+    "stroke_width": 2,
+    "stroke_color": "rgba(0, 0, 0, 0.4)",
+    "position_y_pct": "85%",
+    "highlight_style": "yellow_pill",
+    "highlight_bg": "#facc15",
+    "highlight_color": "#000000"
+  },
+  "palette": {
+    "bg_cream": "#f5ebe1",
+    "bg_sky_warm": "#fdf8ee",
+    "accent_yellow": "#facc15",
+    "shadow_olive": "#6b655b",
+    "green_chalkboard": "#43604f",
+    "wood_desk": "#d4b996"
+  },
+  "videos": [
+    {
+      "id": "9YPQ-8UetCE",
+      "title": "Guru PNS vs Guru Honorer",
+      "frames": 3104,
+      "duration": 103.47,
+      "luma": 176.5,
+      "contrast": 40.8,
+      "sat": 66.2,
+      "color_temp": 28.8,
+      "flow": 0.0513,
+      "shots": 25,
+      "shot_med": 3.67,
+      "wpm": 134.1,
+      "words": 235,
+      "views": 28000
+    }
+  ]
+}
