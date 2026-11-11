@@ -14,10 +14,40 @@ import {
   VIDEO_WIDTH as CETBANG_WIDTH,
   VIDEO_HEIGHT as CETBANG_HEIGHT,
 } from "./CetbangMajapahitExplainer";
+import {
+  BentengDedaunExplainer,
+  DURATION_IN_FRAMES as BENTENG_DEDAUN_DURATION,
+  VIDEO_FPS as BENTENG_DEDAUN_FPS,
+  VIDEO_WIDTH as BENTENG_DEDAUN_WIDTH,
+  VIDEO_HEIGHT as BENTENG_DEDAUN_HEIGHT,
+} from "./BentengDedaunExplainer";
+import {
+  DedaunTest10s,
+  DURATION_IN_FRAMES as DEDAUN_DURATION,
+  VIDEO_FPS as DEDAUN_FPS,
+  VIDEO_WIDTH as DEDAUN_WIDTH,
+  VIDEO_HEIGHT as DEDAUN_HEIGHT,
+} from "./DedaunTest10s";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="BentengDedaunExplainer"
+        component={BentengDedaunExplainer}
+        durationInFrames={BENTENG_DEDAUN_DURATION}
+        fps={BENTENG_DEDAUN_FPS}
+        width={BENTENG_DEDAUN_WIDTH}
+        height={BENTENG_DEDAUN_HEIGHT}
+      />
+      <Composition
+        id="DedaunTest10s"
+        component={DedaunTest10s}
+        durationInFrames={DEDAUN_DURATION}
+        fps={DEDAUN_FPS}
+        width={DEDAUN_WIDTH}
+        height={DEDAUN_HEIGHT}
+      />
       <Composition
         id="CetbangMajapahitExplainer"
         component={CetbangMajapahitExplainer}
